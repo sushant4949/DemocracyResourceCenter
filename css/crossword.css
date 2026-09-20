@@ -1,16 +1,5 @@
 /* Preamble crossword — Dialogues on Democracy & Development */
 
-.game-hero {
-  position: relative; overflow: hidden; isolation: isolate;
-  background: radial-gradient(120% 120% at 0% 0%, #7aa8ff 0%, var(--brand) 42%, var(--brand-700) 100%);
-  color: #fff; padding: clamp(32px, 6vw, 64px) 0 clamp(36px, 6vw, 72px);
-}
-.game-hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700; margin: 14px 0 14px; max-width: 22ch; }
-.game-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, rgba(255,255,255,.28) 62%); padding: 0 .08em; }
-.game-hero .lede { font-size: 1.1rem; color: rgba(255,255,255,.92); max-width: 56ch; }
-.game-hero strong { font-weight: 600; }
-.game-main { margin-top: clamp(-40px, -4vw, -28px); position: relative; z-index: 2; padding-bottom: 40px; }
-
 .game { display: grid; gap: 16px; }
 .game-bar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;

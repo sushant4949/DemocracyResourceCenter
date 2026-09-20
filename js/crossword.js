@@ -2,9 +2,33 @@
 (() => {
   "use strict";
 
-  const DATA = window.DOD_CROSSWORD;
+  const LEVELS = window.DOD_CROSSWORD_LEVELS;
+  const ORDER = ["easy", "medium", "hard"];
+  const root = document.getElementById("game");
+  const params = new URLSearchParams(location.search);
+  const level = params.get("level");
+
+  if (!LEVELS[level]) {
+    // No level chosen yet: offer the three.
+    root.innerHTML = `
+      <section class="chooser">
+        <h2>Choose your level</h2>
+        <p class="chooser-sub">Every level uses words from the Preamble. Start easy and work up.</p>
+        <div class="levels wide">
+          ${ORDER.map(k => `
+            <a class="level" href="crossword.html?level=${k}">
+              <span class="lv">${LEVELS[k].label}</span>
+              <span class="ln">${LEVELS[k].entries.length} words · ${LEVELS[k].rows}×${LEVELS[k].cols} grid</span>
+              <span class="lb">${LEVELS[k].blurb}</span>
+            </a>`).join("")}
+        </div>
+      </section>`;
+    return;
+  }
+
+  const DATA = LEVELS[level];
   const ROWS = DATA.rows, COLS = DATA.cols;
-  const STORE = "dod-crossword-v1";
+  const STORE = "dod-crossword-" + level + "-v2";
 
   const PREAMBLE = [
     "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens:",
@@ -76,7 +100,6 @@
   const entryDone = e => entryCells(e).every(k => values[k] === cells.get(k).letter);
 
   /* ---------- View ---------- */
-  const root = document.getElementById("game");
 
   function gridHTML() {
     let html = `<div class="grid" id="grid" style="--cols:${COLS};--rows:${ROWS}" role="grid" aria-label="Crossword grid">`;
@@ -101,6 +124,13 @@
   }
 
   root.innerHTML = `
+    <div class="level-strip">
+      <span class="level-now">${DATA.label} · ${DATA.entries.length} words</span>
+      <span class="level-links">
+        ${ORDER.filter(k => k !== level).map(k => `<a href="crossword.html?level=${k}">Switch to ${LEVELS[k].label.toLowerCase()}</a>`).join("")}
+      </span>
+    </div>
+
     <div class="game-bar">
       <div class="stat"><span class="stat-label">Progress</span><div class="pbar"><i id="pfill"></i></div><span class="stat-val" id="pval">0%</span></div>
       <div class="stat time">${ICONS.clock}<span class="stat-val" id="timer">00:00</span></div>
@@ -143,8 +173,8 @@
         <h2>You wrote out the Preamble’s promise</h2>
         <p id="winText">All 27 words in place.</p>
         <div class="win-actions">
-          <a class="btn btn-primary" href="constitution.html">Explore our Constitution</a>
-          <a class="btn btn-outline" href="assessment.html">Take the assessment</a>
+          ${level !== "hard" ? `<a class="btn btn-primary" href="crossword.html?level=${ORDER[ORDER.indexOf(level) + 1]}">Try ${LEVELS[ORDER[ORDER.indexOf(level) + 1]].label.toLowerCase()}</a>` : `<a class="btn btn-primary" href="quiz.html?level=hard">Try the hard quiz</a>`}
+          <a class="btn btn-outline" href="constitution.html">Explore our Constitution</a>
           <button class="btn btn-ghost" data-act="clear">Play again</button>
         </div>
       </div>
@@ -213,7 +243,7 @@
   function showWin() {
     const revealedCount = Object.keys(revealed).length;
     root.querySelector("#winText").textContent =
-      `All 27 words in place in ${fmt(elapsed)}` + (revealedCount ? `, with ${revealedCount} letter${revealedCount > 1 ? "s" : ""} revealed.` : ", with no help at all.");
+      `All ${DATA.entries.length} words in place in ${fmt(elapsed)}` + (revealedCount ? `, with ${revealedCount} letter${revealedCount > 1 ? "s" : ""} revealed.` : ", with no help at all.");
     const win = root.querySelector("#win");
     win.hidden = false;
     win.classList.add("show");

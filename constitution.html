@@ -34,32 +34,7 @@
 
   <header class="con-hero has-figure">
     <div class="hero-words" aria-hidden="true"><span>Justice</span><span>Liberty</span><span>Equality</span><span>Fraternity</span></div>
-      <div class="hero-figure" aria-hidden="true">
-        <svg viewBox="0 0 360 460" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <!-- head in profile, facing right: skull, forehead, nose, lips, chin, jaw -->
-        <path d="M152 256c-28-8-44-36-46-76-2-54 32-94 78-94 38 0 66 26 66 62 0 14-3 26-6 34l14 22c4 7 2 12-6 14l-10 3c0 9-1 16-4 20-3 4-8 6-14 6 1 9 0 16-4 21-7 9-20 13-36 12-10-1-20-3-32-6z"/>
-        <!-- receding hairline, swept back -->
-        <path d="M120 156c14-30 44-48 78-44 14 2 26 8 34 17"/>
-        <!-- ear -->
-        <path d="M150 182c-8-1-13 6-11 15 2 9 8 15 14 15"/>
-        <!-- spectacles: lens, bridge, temple arm -->
-        <circle cx="214" cy="172" r="25"/>
-        <path d="M239 166c6-2 11-1 14 2"/>
-        <path d="M189 168l-32 3"/>
-        <!-- brow -->
-        <path d="M194 145c10-4 20-3 27 2"/>
-        <!-- neck -->
-        <path d="M166 296c5-13 7-26 6-40"/>
-        <!-- shoulders and jacket -->
-        <path d="M28 458c4-52 18-84 42-102 12-9 28-16 48-21l48-13"/>
-        <path d="M332 458c-3-48-14-79-33-97-10-9-24-16-42-22l-34-12"/>
-        <!-- collar, lapels and tie -->
-        <path d="M166 296c11 17 23 27 35 31 10-3 20-12 27-23"/>
-        <path d="M152 320l48 48 8-46"/>
-        <path d="M242 310l-42 58"/>
-        <path d="M200 368l-14 20 18 72 20-72-14-20"/>
-        </svg>
-      </div>
+      <div class="hero-figure" aria-hidden="true"><img src="assets/ambedkar-portrait.svg" alt=""></div>
     <div class="wrap">
       <p class="eyebrow light">Our Constitution</p>
       <h1>Written by 299 people, over <em>165 days</em>, for a billion strangers</h1>
@@ -93,6 +68,7 @@
           <span class="count" id="member-count"></span>
         </div>
         <div class="members" id="members"></div>
+        <div id="credits"></div>
       </div>
     </section>
 
@@ -112,6 +88,18 @@
         <h3>The limit Parliament cannot cross</h3>
         <p>In <em>Kesavananda Bharati v. State of Kerala</em> (1973), a bench of thirteen judges held that Parliament may amend any part of the Constitution but may not damage or destroy its basic structure — its supremacy, the republican and democratic form of government, secularism, the separation of powers, judicial review and the rule of law. Every amendment since has been written in the shadow of that ruling.</p>
       </aside>
+    </section>
+
+    <section class="section" id="gallery-section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">In pictures</p>
+          <h2>The Constitution, photographed</h2>
+          <p class="section-sub">Nine images from the Assembly years and from the handwritten manuscript itself. Tap any one to see it larger.</p>
+        </header>
+        <div class="gallery" id="gallery"></div>
+        <div id="photo-credits"></div>
+      </div>
     </section>
 
     <section class="section band-tint">
@@ -143,7 +131,8 @@
     <div class="wrap">
       <div>
         <strong>Dialogues on Democracy &amp; Development</strong><br>
-        <small>Creating safe, inclusive and engaging spaces for dialogue.</small>
+        <small>Creating safe, inclusive and engaging spaces for dialogue.</small><br>
+        <small class="attrib">Portrait of Dr. B.R. Ambedkar by <a href="https://commons.wikimedia.org/wiki/File:B._R._Ambedkar.svg" target="_blank" rel="noopener">Suthir</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, via Wikimedia Commons.</small>
       </div>
       <div class="foot-links">
         <a href="assessment.html">Assessment</a>
@@ -153,6 +142,23 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lb-backdrop" data-lb="close"></div>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Photograph">
+      <button class="lb-close" data-lb="close" aria-label="Close">&times;</button>
+      <button class="lb-nav lb-prev" data-lb="prev" aria-label="Previous photograph">‹</button>
+      <div class="lb-img"></div>
+      <button class="lb-nav lb-next" data-lb="next" aria-label="Next photograph">›</button>
+      <div class="lb-meta">
+        <h3 class="lb-title"></h3>
+        <p class="lb-cap"></p>
+        <p class="lb-credit"></p>
+        <span class="lb-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/constitution-media.js"></script>
   <script src="js/constitution.js"></script>
 </body>
 </html>

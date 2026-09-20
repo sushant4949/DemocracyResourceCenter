@@ -2,13 +2,15 @@
 
 Free, browser-based learning tools by **[Dialogues on Democracy & Development](https://www.dialoguesondemocracy.org/)**.
 
-**Live site:** https://sushant4949.github.io/DoDAssessment/
+**Live site:** https://sushant4949.github.io/DemocracyResourceCenter/
 
 | Page | What it is |
 |---|---|
 | `index.html` | Home hub with a tile for each resource |
 | `assessment.html` | The constitutional literacy assessment (45 questions, personal report) |
-| `games.html` | The Preamble crossword |
+| `games.html` | Games hub |
+| `crossword.html` | The Preamble crossword — easy, medium and hard |
+| `quiz.html` | The Constitution quiz — easy, medium and hard |
 | `constitution.html` | The story of the Constitution: journey, people, amendments, architecture |
 
 Everything is static HTML, CSS and vanilla JavaScript — no build step, no framework, no backend.
@@ -45,31 +47,39 @@ Factual Knowledge questions are right or wrong. The exception is "All of the abo
 
 Answers are saved only in the participant's own browser, so nothing is sent to a server.
 
-## The Preamble crossword
+## Games
 
-A 20×20 grid built from 27 words that appear in the Preamble, from SOVEREIGN to FRATERNITY. It has a timer, progress tracking, check and reveal helpers, a peek at the Preamble itself, and saves progress in the browser. The layout was generated once and lives in [`js/crossword-data.js`](js/crossword-data.js); the clues sit alongside each answer there.
+**Preamble crossword** — three levels, every answer a word from the Preamble: easy (6 words, 10×10), medium (12 words, 16×11) and hard (24 words, 17×22). Timer, progress, check and reveal helpers, a peek at the Preamble, and progress saved per level in the browser. Layouts and clues live in [`js/crossword-data.js`](js/crossword-data.js).
+
+**Constitution quiz** — three levels of ten questions each: the basics, amendments and articles, and landmark judgements. Every answer is followed by the reasoning. Questions live in [`js/quiz-data.js`](js/quiz-data.js).
 
 ## Our Constitution
 
-- A journey map of nine moments between December 1946 and January 1950, each expanding on tap
-- Eighteen members of the Constituent Assembly, filterable by Drafting Committee, women members, voices from the margins and guiding hands
+- A journey map of nine dated moments between December 1946 and January 1950, each expanding on tap, most with a photograph from the time
+- Eighteen members of the Constituent Assembly with portraits and links to their Wikipedia pages, filterable by Drafting Committee, women members, voices from the margins and guiding hands
 - An amendments timeline of nineteen landmark amendments, from the First (1951) to the 106th (2023)
+- A gallery of nine historical photographs with a lightbox
 - The architecture of the text: Fundamental Rights, Directive Principles, Fundamental Duties and the division of powers
 
-All of the content lives in [`js/constitution.js`](js/constitution.js).
+Content lives in [`js/constitution.js`](js/constitution.js); image captions and credits in [`js/constitution-media.js`](js/constitution-media.js).
+
+## Images and credits
+
+All images come from Wikimedia Commons and are public domain or freely licensed. Each page carries its own credits list with the licence and author of every image, and the portrait of Dr. B.R. Ambedkar used in the page headers is by [Suthir](https://commons.wikimedia.org/wiki/File:B._R._Ambedkar.svg), CC BY-SA 4.0.
 
 ## Editing content
 
 | To change | Edit |
 |---|---|
 | Assessment questions, scores, themes, explanations | [`js/questions.js`](js/questions.js) |
-| Crossword answers and clues | [`js/crossword-data.js`](js/crossword-data.js) |
+| Crossword layouts and clues | [`js/crossword-data.js`](js/crossword-data.js) |
+| Quiz questions | [`js/quiz-data.js`](js/quiz-data.js) |
 | Constitution journey, members, amendments | [`js/constitution.js`](js/constitution.js) |
 | Colours, type, shared furniture | [`css/base.css`](css/base.css) |
 
 ## Design
 
-The brand colour (`#6699ff`), the Barlow Semi Condensed type and the logos come from the DoD website. The outlined JUSTICE / LIBERTY / EQUALITY / FRATERNITY lettermark and the line-art portrait of Dr. B.R. Ambedkar (`assets/ambedkar-outline.svg`, drawn in SVG for this site) run across the page headers.
+The brand colour (`#6699ff`), the Barlow Semi Condensed type and the logos come from the DoD website. The outlined JUSTICE / LIBERTY / EQUALITY / FRATERNITY lettermark and the stencil portrait of Dr. B.R. Ambedkar run across the page headers.
 
 ## Running locally
 

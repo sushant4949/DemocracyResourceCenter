@@ -1,0 +1,67 @@
+/* Games hub, level choosers and shared game furniture */
+
+.game-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: radial-gradient(120% 120% at 0% 0%, #7aa8ff 0%, var(--brand) 42%, var(--brand-700) 100%);
+  color: #fff; padding: clamp(32px, 6vw, 64px) 0 clamp(36px, 6vw, 72px);
+}
+.game-hero.compact { padding-bottom: clamp(44px, 7vw, 86px); }
+.game-hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700; margin: 14px 0 14px; max-width: 22ch; }
+.game-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, rgba(255,255,255,.28) 62%); padding: 0 .08em; }
+.game-hero .lede { font-size: 1.1rem; color: rgba(255,255,255,.92); max-width: 56ch; }
+.game-hero strong { font-weight: 600; }
+.game-hero .crumb { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); }
+.game-hero .crumb:hover { border-color: #fff; }
+.game-main { margin-top: clamp(-40px, -4vw, -28px); position: relative; z-index: 2; padding-bottom: 40px; }
+
+.game-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.game-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 30px); box-shadow: var(--shadow-md);
+  display: flex; flex-direction: column; gap: 20px;
+  animation: rise .6s var(--ease) both;
+}
+.game-card:nth-child(2) { animation-delay: .1s; }
+.gc-head { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+.gc-ic { width: 56px; height: 56px; border-radius: 16px; background: var(--brand); color: #fff; display: grid; place-items: center; }
+.gc-ic svg { width: 28px; height: 28px; }
+.game-card h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 700; }
+.game-card p { color: var(--ink-2); margin-top: 4px; }
+
+.levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto; }
+.levels.wide { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.level {
+  display: flex; flex-direction: column; gap: 3px; text-decoration: none;
+  border: 1.5px solid var(--tint-3); border-radius: var(--r-md); padding: 14px 16px;
+  background: linear-gradient(180deg, var(--tint-1), #fff 80%); color: var(--ink);
+  transition: border-color .25s, transform .25s var(--ease), box-shadow .25s, background .25s;
+}
+.level:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.level .lv { font-family: var(--display); font-weight: 700; font-size: 1.25rem; color: var(--brand-700); }
+.level .ln { font-size: .88rem; color: var(--ink-3); }
+.level .lb { font-size: .95rem; color: var(--ink-2); margin-top: 6px; line-height: 1.4; }
+
+.chooser {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(24px, 4vw, 40px); box-shadow: var(--shadow-md); animation: rise .5s var(--ease) both;
+}
+.chooser h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+.chooser-sub { color: var(--ink-2); margin: 6px 0 22px; }
+
+.level-strip {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px;
+  margin-bottom: 14px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 8px 16px 8px 8px; box-shadow: var(--shadow-sm);
+}
+.level-now {
+  font-family: var(--display); font-weight: 600; letter-spacing: .04em;
+  background: var(--tint-2); color: var(--brand-700); border-radius: 999px; padding: .35em 1em;
+}
+.level-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: .95rem; }
+.level-links a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--tint-3); }
+.level-links a:hover { color: var(--brand-700); border-color: var(--brand); }
+
+@media (max-width: 860px) {
+  .game-cards { grid-template-columns: 1fr; }
+  .levels, .levels.wide { grid-template-columns: 1fr; }
+}

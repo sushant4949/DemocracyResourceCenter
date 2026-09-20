@@ -13,47 +13,47 @@
 
   const JOURNEY = [
     {
-      date: "9 December 1946", title: "The Assembly meets for the first time",
+      date: "9 December 1946", img: "objectives-resolution", day: "9", mon: "Dec", year: "1946", title: "The Assembly meets for the first time",
       short: "207 members gather in the Constitution Hall in New Delhi. Sachchidananda Sinha, the oldest member, takes the chair.",
       detail: "The Constituent Assembly had been elected indirectly by the provincial assemblies under the Cabinet Mission Plan. The Muslim League stayed away from this first sitting. Two days later, on 11 December 1946, Dr. Rajendra Prasad was elected its permanent President, a role he held through every session."
     },
     {
-      date: "13 December 1946", title: "The Objectives Resolution",
+      date: "13 December 1946", day: "13", mon: "Dec", year: "1946", title: "The Objectives Resolution",
       short: "Jawaharlal Nehru moves the resolution that sets out what the new republic will stand for.",
       detail: "The resolution promised an independent sovereign republic that would secure justice, equality of status and opportunity, and freedom of thought, expression, belief, faith and worship, with safeguards for minorities, backward classes and tribal areas. Adopted on 22 January 1947, it became the seed of the Preamble."
     },
     {
-      date: "15 August 1947", title: "Independence changes the task",
+      date: "15 August 1947", img: "independence-session", day: "15", mon: "Aug", year: "1947", title: "Independence changes the task",
       short: "The Assembly becomes a sovereign body, and also the country's first Parliament.",
       detail: "With Partition, the Assembly lost the members from areas that became Pakistan and its strength settled at 299. It now wrote the Constitution and ran the country at the same time, sitting as a legislature on some days and as a constitution-making body on others."
     },
     {
-      date: "29 August 1947", title: "The Drafting Committee is formed",
+      date: "29 August 1947", img: "ambedkar-listening", day: "29", mon: "Aug", year: "1947", title: "The Drafting Committee is formed",
       short: "Seven members are appointed, with Dr. B.R. Ambedkar as Chairman.",
       detail: "The committee was Ambedkar, Alladi Krishnaswami Ayyar, N. Gopalaswami Ayyangar, K.M. Munshi, Syed Mohammad Saadulla, B.L. Mitter (later replaced by N. Madhava Rau) and D.P. Khaitan (later replaced by T.T. Krishnamachari). They worked from a draft prepared by the Constitutional Adviser, B.N. Rau."
     },
     {
-      date: "February 1948", title: "The draft goes public",
+      date: "February 1948", day: "", mon: "Feb", year: "1948", title: "The draft goes public",
       short: "The Draft Constitution is published so that citizens can send in their comments.",
       detail: "Copies went to the public, the press, provincial governments and lawyers' associations. Thousands of suggestions came back, and the Drafting Committee reworked the text in light of them — an early act of public consultation in a country that had never voted on universal franchise."
     },
     {
-      date: "4 November 1948", title: "Clause by clause, line by line",
+      date: "4 November 1948", day: "4", mon: "Nov", year: "1948", title: "Clause by clause, line by line",
       short: "Ambedkar introduces the Draft. The Assembly debates it for over a year.",
       detail: "Members argued over the strength of the centre, the place of Hindi and other languages, reservations, the right to property, and whether Directive Principles should be enforceable. Thousands of amendments were moved, and many were accepted. The debates, published in full, remain one of the richest records of Indian public reasoning."
     },
     {
-      date: "26 November 1949", title: "Adopted",
+      date: "26 November 1949", img: "draft-presented", day: "26", mon: "Nov", year: "1949", title: "Adopted",
       short: "The Assembly adopts the Constitution. India observes the day as Constitution Day.",
       detail: "Some articles came into force at once — those on citizenship, elections and the provisional Parliament — so that the machinery for the first general election could be set up. Ambedkar warned that the Constitution would work only as well as those who worked it: however good a constitution may be, he said, it will prove bad if those called to work it are a bad lot."
     },
     {
-      date: "24 January 1950", title: "The signing",
+      date: "24 January 1950", img: "nehru-signing", day: "24", mon: "Jan", year: "1950", title: "The signing",
       short: "Members sign three copies: one in English, one in Hindi, one handwritten. The anthem is adopted the same day.",
       detail: "The handwritten English copy was calligraphed by Prem Behari Narain Raizada in flowing italic, and decorated by Nandalal Bose and artists from Santiniketan; Beohar Rammanohar Sinha illuminated the Preamble page. Jana Gana Mana was adopted as the national anthem and Vande Mataram given equal honour as the national song."
     },
     {
-      date: "26 January 1950", title: "It becomes ours",
+      date: "26 January 1950", img: "prasad-nehru", day: "26", mon: "Jan", year: "1950", title: "It becomes ours",
       short: "The Constitution comes into force. India becomes a republic.",
       detail: "The date was chosen deliberately: on 26 January 1930, the Congress had declared Purna Swaraj, complete independence. Dr. Rajendra Prasad was sworn in as the first President. The Constituent Assembly became the provisional Parliament until the first general election of 1951–52, in which every adult could vote."
     }
@@ -69,92 +69,110 @@
 
   const MEMBERS = [
     {
-      name: "Dr. B.R. Ambedkar", role: "Chairman, Drafting Committee", groups: ["drafting", "margins"],
+      name: "Dr. B.R. Ambedkar", wiki: "https://en.wikipedia.org/wiki/B._R._Ambedkar", img: "ambedkar.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Dr._Bhimrao_Ambedkar.jpg", artist: "Unknown author",
+      role: "Chairman, Drafting Committee", groups: ["drafting", "margins"],
       short: "Born into a Mahar family and made to sit apart in school, he became the principal architect of the text that outlawed untouchability.",
       detail: "Ambedkar studied at Columbia University and the London School of Economics, led the movement for Dalit rights, and served as independent India's first Law Minister. He called Article 32, the right to move the Supreme Court when rights are violated, the heart and soul of the Constitution. He also pressed for a strong centre, constitutional morality, and for social democracy — one person, one vote, one value — warning that political equality without social and economic equality would not last."
     },
     {
-      name: "Dr. Rajendra Prasad", role: "President of the Constituent Assembly", groups: ["guiding"],
+      name: "Dr. Rajendra Prasad", wiki: "https://en.wikipedia.org/wiki/Rajendra_Prasad", img: "prasad.jpg", credit: "CC BY-SA 2.0", filePage: "https://commons.wikimedia.org/wiki/File:Rajendra_Prasad_(Indian_President),_signed_image_for_Walter_Nash_(NZ_Prime_Minister),_1958_(16017609534).jpg", artist: "Archives New Zealand from New Zealand",
+      role: "President of the Constituent Assembly", groups: ["guiding"],
       short: "Presided over every session, holding together an Assembly that argued fiercely and rarely voted along party lines.",
       detail: "A lawyer from Bihar and a leader of the Champaran movement, Prasad was elected President of the Assembly on 11 December 1946. He steered three years of debate and signed the Constitution into being. In 1950 he became the first President of India, serving two full terms."
     },
     {
-      name: "Jawaharlal Nehru", role: "Moved the Objectives Resolution", groups: ["guiding"],
+      name: "Jawaharlal Nehru", wiki: "https://en.wikipedia.org/wiki/Jawaharlal_Nehru", img: "nehru.jpg", credit: "CC0", filePage: "https://commons.wikimedia.org/wiki/File:Nehru_in_the_Netherlands,_1957.jpg", artist: "Harry Pot",
+      role: "Moved the Objectives Resolution", groups: ["guiding"],
       short: "His Objectives Resolution of December 1946 became the promise the Preamble now carries.",
       detail: "Nehru framed the new republic's purpose in terms of justice, equality of status and opportunity, and freedom of thought and belief, with safeguards for minorities and tribal people. As Prime Minister he defended the Assembly's work in public, while inside it he was often challenged and outvoted on detail."
     },
     {
-      name: "Sardar Vallabhbhai Patel", role: "Chair, Advisory Committee on Fundamental Rights and Minorities", groups: ["guiding"],
+      name: "Sardar Vallabhbhai Patel", wiki: "https://en.wikipedia.org/wiki/Vallabhbhai_Patel", img: "patel.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Sardar_patel_(cropped).jpg", artist: "Government of India work",
+      role: "Chair, Advisory Committee on Fundamental Rights and Minorities", groups: ["guiding"],
       short: "Handled the Assembly's hardest political questions, including the end of separate electorates.",
       detail: "Patel chaired the committees on fundamental rights, minorities, and tribal and excluded areas. Under his chairmanship the Assembly dropped separate electorates and reserved seats for religious minorities, while retaining reservation for Scheduled Castes and Scheduled Tribes. Outside the Assembly he led the integration of the princely states."
     },
     {
-      name: "B.N. Rau", role: "Constitutional Adviser", groups: ["guiding"],
+      name: "B.N. Rau", wiki: "https://en.wikipedia.org/wiki/B._N._Rau", img: "rau.jpg", credit: "GODL-India", filePage: "https://commons.wikimedia.org/wiki/File:BN_Rau_1988_stamp_of_India.jpg", artist: "India Post, Government of India",
+      role: "Constitutional Adviser", groups: ["guiding"],
       short: "The civil servant who wrote the first draft, after studying constitutions across the world.",
       detail: "Rau prepared the initial draft of 243 articles and 13 schedules that the Drafting Committee worked from. He travelled to the United States, Canada, Ireland and England to study how their constitutions worked, and later became a judge of the International Court of Justice."
     },
     {
-      name: "Alladi Krishnaswami Ayyar", role: "Drafting Committee", groups: ["drafting"],
+      name: "Alladi Krishnaswami Ayyar", wiki: "https://en.wikipedia.org/wiki/Alladi_Krishnaswamy_Iyer", img: "alladi.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Alladi_Krishnaswamy_Iyer.jpg", artist: "Unknown author",
+      role: "Drafting Committee", groups: ["drafting"],
       short: "One of the finest lawyers of his generation, and a steady voice for a strong, enforceable set of rights.",
       detail: "Advocate-General of Madras for many years, Ayyar served on the Drafting Committee and several key sub-committees. He argued for due process safeguards balanced with the State's ability to govern, and helped shape the articles on citizenship and the judiciary."
     },
     {
-      name: "K.M. Munshi", role: "Drafting Committee", groups: ["drafting"],
+      name: "K.M. Munshi", wiki: "https://en.wikipedia.org/wiki/Kanaiyalal_Maneklal_Munshi", img: "munshi.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:K_M_Munshi.jpg", artist: "Photo Division, Govt. of India",
+      role: "Drafting Committee", groups: ["drafting"],
       short: "Lawyer, novelist and one of the keenest defenders of fundamental rights in the Assembly.",
       detail: "Munshi drafted early proposals on rights and pressed for freedom of expression and for a uniform civil code. He founded the Bharatiya Vidya Bhavan and later served as Governor of Uttar Pradesh."
     },
     {
-      name: "Syed Mohammad Saadulla", role: "Drafting Committee", groups: ["drafting"],
+      name: "Syed Mohammad Saadulla", wiki: "https://en.wikipedia.org/wiki/Muhammed_Saadulah", img: "saadulla.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Syed_Saadulla.jpg", artist: "Unknown author",
+      role: "Drafting Committee", groups: ["drafting"],
       short: "Former Premier of Assam, and one of the Muslim members who chose to build the new republic from within.",
       detail: "Saadulla brought the concerns of Assam and of the north-east into the drafting room, and worked on the provisions dealing with tribal areas that became the Sixth Schedule."
     },
     {
-      name: "N. Gopalaswami Ayyangar", role: "Drafting Committee", groups: ["drafting"],
+      name: "N. Gopalaswami Ayyangar", wiki: "https://en.wikipedia.org/wiki/N._Gopalaswami_Ayyangar", img: "ayyangar.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Gopalaswamy_Ayyangar.jpg", artist: "Photo Division, Ministry of Information &amp; Broadcasting, Government",
+      role: "Drafting Committee", groups: ["drafting"],
       short: "Former Prime Minister of Jammu and Kashmir state, who drafted the article on its special status.",
       detail: "Ayyangar piloted what became Article 370 through the Assembly, and worked on the provisions dealing with the Union executive, Parliament and the services."
     },
     {
-      name: "T.T. Krishnamachari", role: "Drafting Committee", groups: ["drafting"],
+      name: "T.T. Krishnamachari", wiki: "https://en.wikipedia.org/wiki/T._T._Krishnamachari", img: "ttk.jpg", credit: "GODL-India", filePage: "https://commons.wikimedia.org/wiki/File:TT_Krishnamachari_2002_stamp_of_India.jpg", artist: "India Post, Government of India",
+      role: "Drafting Committee", groups: ["drafting"],
       short: "Told the Assembly plainly how much of the work had fallen on Ambedkar's shoulders alone.",
       detail: "Krishnamachari joined the Drafting Committee in 1948 after D.P. Khaitan's death. In a well-known intervention he noted that with members resigning, ill or away, the burden of drafting had come to rest on Ambedkar, and that the House owed him a debt of gratitude. He later served as Finance Minister."
     },
     {
-      name: "Hansa Mehta", role: "Member, Fundamental Rights sub-committee", groups: ["women"],
+      name: "Hansa Mehta", wiki: "https://en.wikipedia.org/wiki/Hansa_Mehta", img: "mehta.jpg", credit: "CC BY-SA 4.0", filePage: "https://commons.wikimedia.org/wiki/File:Hansa_Jivraj_Mehta.jpg", artist: "Part of Source Image",
+      role: "Member, Fundamental Rights sub-committee", groups: ["women"],
       short: "Asked not for favours for women but for equality, dignity and social justice as a matter of right.",
       detail: "An educationist and reformer from Bombay, Mehta presented a charter of women's rights and opposed reserved seats for women, arguing that equality before the law and a uniform civil code mattered more. At the United Nations she is credited with changing the line in the Universal Declaration of Human Rights from 'all men are born free and equal' to 'all human beings'."
     },
     {
-      name: "Dakshayani Velayudhan", role: "The only Dalit woman in the Assembly", groups: ["women", "margins"],
+      name: "Dakshayani Velayudhan", wiki: "https://en.wikipedia.org/wiki/Dakshayani_Velayudhan",
+      role: "The only Dalit woman in the Assembly", groups: ["women", "margins"],
       short: "At 34, the only Dalit woman in the room, speaking for dignity rather than protection.",
       detail: "From Cochin, and among the first women of her community to earn a science degree, Velayudhan argued that what Dalits needed was not safeguards alone but the end of a social order that treated them as lesser. She supported the abolition of untouchability under Article 17 and spoke for the rights of labour."
     },
     {
-      name: "Rajkumari Amrit Kaur", role: "Member, Fundamental Rights sub-committee", groups: ["women"],
+      name: "Rajkumari Amrit Kaur", wiki: "https://en.wikipedia.org/wiki/Amrit_Kaur", img: "amritkaur.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:RajkumariAmritKaur1936.png", artist: "No photographer credited",
+      role: "Member, Fundamental Rights sub-committee", groups: ["women"],
       short: "Campaigned against child marriage and purdah, and for women's right to health and education.",
       detail: "Born into the royal family of Kapurthala, Amrit Kaur joined Gandhi's movement and served sixteen years as his secretary. In the Assembly she worked on fundamental rights and minority questions. As independent India's first Health Minister she founded the All India Institute of Medical Sciences."
     },
     {
-      name: "Begum Aizaz Rasul", role: "The only Muslim woman member", groups: ["women", "margins"],
+      name: "Begum Aizaz Rasul", wiki: "https://en.wikipedia.org/wiki/Aizaz_Rasul", img: "rasul.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:BegumAizazRasul1938.png", artist: "No photographer credited",
+      role: "The only Muslim woman member", groups: ["women", "margins"],
       short: "Argued that separate electorates were a self-defeating weapon for minorities.",
       detail: "From an aristocratic family in Uttar Pradesh, Rasul was among the members of the Muslim League who stayed and worked within the Assembly. She supported ending separate electorates and reserved seats for religious minorities, holding that minorities would be safer as citizens with equal rights than as groups set apart."
     },
     {
-      name: "Durgabai Deshmukh", role: "Member, Steering Committee", groups: ["women"],
+      name: "Durgabai Deshmukh", wiki: "https://en.wikipedia.org/wiki/Durgabai_Deshmukh", img: "deshmukh.jpg", credit: "GODL-India", filePage: "https://commons.wikimedia.org/wiki/File:Durgabai_Deshmukh_1982_stamp_of_India.jpg", artist: "India Post, Government of India",
+      role: "Member, Steering Committee", groups: ["women"],
       short: "Went to prison at twelve for the salt satyagraha, and later shaped the Assembly's rules of business.",
       detail: "A lawyer and social worker from Andhra, Deshmukh founded the Andhra Mahila Sabha, spoke for women's education and for legal aid, and sat on several of the Assembly's committees. She later chaired the National Council for Women's Education."
     },
     {
-      name: "Jaipal Singh Munda", role: "Adivasi leader from Chhotanagpur", groups: ["margins"],
+      name: "Jaipal Singh Munda", wiki: "https://en.wikipedia.org/wiki/Jaipal_Singh_Munda", img: "munda.jpg", credit: "PD-India", filePage: "https://en.wikipedia.org/wiki/File:Jaipal_Singh_Munda-_File_Picture.jpg", artist: "Unknown author",
+      role: "Adivasi leader from Chhotanagpur", groups: ["margins"],
       short: "Captained India's gold-medal hockey team in 1928, then captained the case for Adivasi rights.",
       detail: "Munda told the Assembly that Adivasis had been in India longest and been given least, and that what they asked for was not charity but the restoration of what had been taken. He pressed for the protections that became the Fifth and Sixth Schedules and for reservation for Scheduled Tribes."
     },
     {
-      name: "Sucheta Kripalani", role: "Freedom fighter and member", groups: ["women"],
+      name: "Sucheta Kripalani", wiki: "https://en.wikipedia.org/wiki/Sucheta_Kripalani", img: "kripalani.jpg", credit: "Public domain", filePage: "https://commons.wikimedia.org/wiki/File:Sucheta_Kriplani_official_portrait.gif", artist: "Government of India",
+      role: "Freedom fighter and member", groups: ["women"],
       short: "Sang Vande Mataram in the Assembly at the midnight hour when India became independent.",
       detail: "Kripalani worked in the relief camps during the violence of Partition and served on the sub-committee on fundamental rights. In 1963 she became India's first woman Chief Minister, in Uttar Pradesh."
     },
     {
-      name: "Frank Anthony", role: "Representative of the Anglo-Indian community", groups: ["margins"],
+      name: "Frank Anthony", wiki: "https://en.wikipedia.org/wiki/Frank_Anthony", img: "anthony.jpg", credit: "GODL-India", filePage: "https://commons.wikimedia.org/wiki/File:Frank_Anthony_2003_stamp_of_India.jpg", artist: "India Post, Government of India",
+      role: "Representative of the Anglo-Indian community", groups: ["margins"],
       short: "Won constitutional recognition and safeguards for one of India's smallest minorities.",
       detail: "Anthony argued the case for the Anglo-Indian community's language, schools and representation, which became Articles 331, 333 and 336 to 337. He led the community's association for decades after independence."
     }
@@ -242,6 +260,9 @@
   ];
 
   const ord = n => { const r = n % 100; if (r >= 11 && r <= 13) return "th"; return ["th", "st", "nd", "rd"][n % 10] || "th"; };
+  const HISTORY = window.DOD_HISTORY || [];
+  const byId = id => HISTORY.find(h => h.id === id);
+
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   /* ---------- Render ---------- */
@@ -257,15 +278,78 @@
   function renderJourney() {
     document.getElementById("journey").innerHTML = JOURNEY.map((s, i) => `
       <article class="stop" data-i="${i}">
-        <div class="stop-dot" aria-hidden="true"><span>${i + 1}</span></div>
-        <button class="stop-card" aria-expanded="false">
-          <span class="stop-date">${esc(s.date)}</span>
-          <h3>${esc(s.title)}</h3>
-          <p class="stop-short">${esc(s.short)}</p>
-          <p class="stop-detail"><span>${esc(s.detail)}</span></p>
-          <span class="more">Read more <span aria-hidden="true">↓</span></span>
-        </button>
+        <time class="stop-when" datetime="${esc(s.date)}">
+          ${s.day ? `<span class="d">${esc(s.day)}</span>` : ""}
+          <span class="m">${esc(s.mon)}</span>
+          <span class="y">${esc(s.year)}</span>
+        </time>
+        <div class="stop-card${s.img ? " has-photo" : ""}">
+          <button class="stop-open" aria-expanded="false">
+            <span class="stop-n">Stop ${i + 1} of ${JOURNEY.length}</span>
+            <h3>${esc(s.title)}</h3>
+            <p class="stop-short">${esc(s.short)}</p>
+            <p class="stop-detail"><span>${esc(s.detail)}</span></p>
+            <span class="more">Read more <span aria-hidden="true">↓</span></span>
+          </button>
+          ${s.img ? photoHTML(byId(s.img), "stop-photo") : ""}
+        </div>
       </article>`).join("");
+  }
+
+  const initials = name => name.replace(/^(Dr\.|Sardar|Begum|Rajkumari)\s+/, "").split(/\s+/).map(w => w[0]).join("").slice(0, 2);
+
+  function photoHTML(h, cls) {
+    if (!h) return "";
+    return `<button class="${cls} photo" data-img="${esc(h.id)}" aria-label="Open photograph: ${esc(h.title)}">
+        <img src="assets/history/${esc(h.file)}" alt="${esc(h.caption)}" loading="lazy">
+        <span class="photo-cap"><span>${esc(h.title)}</span><span class="zoom" aria-hidden="true">⤢</span></span>
+      </button>`;
+  }
+
+  function renderGallery() {
+    const el = document.getElementById("gallery");
+    if (!el) return;
+    el.innerHTML = HISTORY.map(h => photoHTML(h, "gal-item")).join("");
+  }
+
+  /* Lightbox */
+  let lightIndex = 0;
+  function openLight(id) {
+    lightIndex = Math.max(0, HISTORY.findIndex(h => h.id === id));
+    const box = document.getElementById("lightbox");
+    box.hidden = false;
+    document.body.style.overflow = "hidden";
+    paintLight();
+    box.querySelector(".lb-close").focus({ preventScroll: true });
+  }
+  function closeLight() {
+    document.getElementById("lightbox").hidden = true;
+    document.body.style.overflow = "";
+  }
+  function stepLight(d) {
+    lightIndex = (lightIndex + d + HISTORY.length) % HISTORY.length;
+    paintLight();
+  }
+  function paintLight() {
+    const h = HISTORY[lightIndex];
+    const box = document.getElementById("lightbox");
+    box.querySelector(".lb-img").innerHTML = `<img src="assets/history/${esc(h.file)}" alt="${esc(h.caption)}">`;
+    box.querySelector(".lb-title").textContent = h.title;
+    box.querySelector(".lb-cap").textContent = h.caption;
+    box.querySelector(".lb-credit").innerHTML =
+      `${esc(h.license)} · ${esc(h.artist)} · <a href="${esc(h.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
+    box.querySelector(".lb-count").textContent = (lightIndex + 1) + " / " + HISTORY.length;
+  }
+
+  function renderPhotoCredits() {
+    const el = document.getElementById("photo-credits");
+    if (!el) return;
+    el.innerHTML = `
+      <details class="credits">
+        <summary>Photographs: sources and licences (${HISTORY.length} images)</summary>
+        <ul>${HISTORY.map(h => `<li><strong>${esc(h.title)}</strong> — ${esc(h.license)}, ${esc(h.artist)}. <a href="${esc(h.page)}" target="_blank" rel="noopener">File page</a></li>`).join("")}</ul>
+        <p>All photographs come from Wikimedia Commons. Most are public domain images from the Photo Division, Government of India; the illuminated manuscript pages are reproduced under CC BY-SA 4.0.</p>
+      </details>`;
   }
 
   function renderMembers(group = "all") {
@@ -274,15 +358,30 @@
       <article class="member" style="animation-delay:${Math.min(i * 40, 400)}ms">
         <button class="member-btn" aria-expanded="false">
           <span class="m-top">
-            <span class="m-initials" aria-hidden="true">${esc(m.name.replace(/^(Dr\.|Sardar|Begum|Rajkumari|Sucheta|Frank)\s+/, "").split(/\s+/).map(w => w[0]).join("").slice(0, 2))}</span>
+            ${m.img
+              ? `<span class="m-photo${["rau.jpg","ttk.jpg","deshmukh.jpg","anthony.jpg"].includes(m.img) ? " is-stamp" : ""}"><img src="assets/members/${esc(m.img)}" alt="Portrait of ${esc(m.name)}" loading="lazy" width="120" height="120"></span>`
+              : `<span class="m-photo m-initials" aria-hidden="true">${esc(initials(m.name))}</span>`}
             <span class="m-id"><h3>${esc(m.name)}</h3><span class="m-role">${esc(m.role)}</span></span>
             <span class="m-chev" aria-hidden="true">+</span>
           </span>
           <span class="m-short">${esc(m.short)}</span>
           <span class="m-detail"><span>${esc(m.detail)}</span></span>
         </button>
+        <a class="m-wiki" href="${esc(m.wiki)}" target="_blank" rel="noopener">Read on Wikipedia <span aria-hidden="true">↗</span></a>
       </article>`).join("");
     document.getElementById("member-count").textContent = list.length + (list.length === 1 ? " member" : " members");
+  }
+
+  function renderCredits() {
+    const withImg = MEMBERS.filter(m => m.img);
+    document.getElementById("credits").innerHTML = `
+      <details class="credits">
+        <summary>Portraits: sources and licences (${withImg.length} images)</summary>
+        <ul>
+          ${withImg.map(m => `<li><strong>${esc(m.name)}</strong> — ${esc(m.credit)}${m.artist ? ", " + esc(m.artist) : ""}. <a href="${esc(m.filePage)}" target="_blank" rel="noopener">File page</a></li>`).join("")}
+        </ul>
+        <p>Images come from Wikimedia Commons and are reproduced here under the licence shown against each one. Dakshayani Velayudhan is shown by her initials because no freely licensed photograph of her was available.</p>
+      </details>`;
   }
 
   function renderAmendments() {
@@ -362,14 +461,29 @@
   renderFacts();
   renderJourney();
   renderMembers();
+  renderCredits();
   renderAmendments();
   renderArchitecture();
+  renderGallery();
+  renderPhotoCredits();
 
   document.getElementById("filters").innerHTML = MEMBER_GROUPS.map((g, i) =>
     `<button class="filter${i === 0 ? " on" : ""}" data-group="${g.id}">${esc(g.label)}</button>`).join("");
 
   document.addEventListener("click", e => {
-    const stop = e.target.closest(".stop-card");
+    const photo = e.target.closest("[data-img]");
+    if (photo) return openLight(photo.dataset.img);
+
+    const lb = e.target.closest("[data-lb]");
+    if (lb) {
+      const act = lb.dataset.lb;
+      if (act === "close") closeLight();
+      else if (act === "prev") stepLight(-1);
+      else if (act === "next") stepLight(1);
+      return;
+    }
+
+    const stop = e.target.closest(".stop-open");
     if (stop) return expandToggle(stop, stop.closest(".stop"));
 
     const member = e.target.closest(".member-btn");
@@ -402,6 +516,14 @@
     e.preventDefault();
     showAmendment(next);
     document.querySelectorAll(".amend")[next].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  });
+
+  document.addEventListener("keydown", e => {
+    const box = document.getElementById("lightbox");
+    if (!box || box.hidden) return;
+    if (e.key === "Escape") { e.preventDefault(); closeLight(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); stepLight(1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); stepLight(-1); }
   });
 
   observe();

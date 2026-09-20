@@ -116,29 +116,27 @@ img { display: block; max-width: 100%; }
 /* Line-art portrait used alongside the lettermark. */
 .hero-figure {
   position: absolute; z-index: -1; pointer-events: none; user-select: none;
-  right: clamp(-28px, 1vw, 40px); bottom: 0;
-  height: min(86%, 440px); width: auto; color: #fff;
+  right: clamp(-20px, 2vw, 56px); bottom: 0;
+  height: min(88%, 460px); width: auto; color: #fff;
   filter: drop-shadow(0 0 26px rgba(19, 32, 63, .14));
 }
-.hero-figure svg { height: 100%; width: auto; }
-.hero-figure path, .hero-figure circle {
-  stroke: rgba(255,255,255,.52);
-  stroke-dasharray: 1400; stroke-dashoffset: 1400;
-  animation: draw 2.4s var(--ease) forwards;
+.hero-figure img {
+  height: 100%; width: auto;
+  /* the source art is black; this renders it white against the blue */
+  filter: brightness(0) invert(1);
+  opacity: .5;
+  animation: figureIn 1.2s var(--ease) both;
 }
-.hero-figure circle { stroke-dasharray: 200; stroke-dashoffset: 200; }
+@keyframes figureIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: .5; transform: none; } }
 /* When a hero carries the portrait, the lettermark sits to its left. */
 .has-figure .hero-words { right: clamp(180px, 23vw, 350px); bottom: -2%; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .hero-figure path, .hero-figure circle { stroke-dashoffset: 0; animation: none; }
-}
+
 @media (max-width: 900px) {
   .hero-figure { height: min(50%, 220px); right: -20px; }
-  .hero-figure path, .hero-figure circle { stroke: rgba(255,255,255,.4); }
   /* One graphic is enough on a small screen: keep the portrait, drop the lettermark. */
   .has-figure .hero-words { display: none; }
-  .has-figure .hero-figure { height: min(38%, 200px); right: -46px; bottom: -8px; opacity: .5; }
+  .has-figure .hero-figure { height: min(40%, 210px); right: -34px; bottom: -6px; }
+  .has-figure .hero-figure img { opacity: .34; }
 }
 
 .site-nav {
@@ -164,6 +162,8 @@ img { display: block; max-width: 100%; }
 .site-foot a { color: #fff; }
 .site-foot .foot-links { display: flex; flex-wrap: wrap; gap: 16px; font-family: var(--display); font-weight: 600; }
 .site-foot small { font-size: .88rem; }
+.site-foot .attrib { display: inline-block; margin-top: 6px; color: rgba(255,255,255,.55); font-size: .8rem; }
+.site-foot .attrib a { color: rgba(255,255,255,.8); }
 
 @media (max-width: 680px) {
   .site-nav .wrap { flex-direction: column; align-items: stretch; gap: 10px; }
