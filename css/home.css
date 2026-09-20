@@ -74,9 +74,9 @@
 
 /* Three photographs from DoD sessions, blue-framed like the posts. */
 .room { margin-top: clamp(34px, 5vw, 64px); }
-.room-head { max-width: 58ch; margin-bottom: 20px; }
-.room-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 700; margin: 10px 0 8px; }
-.room-head p { color: var(--ink-2); }
+.room-head { max-width: 56ch; margin-bottom: 22px; }
+.room-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 700; margin: 0 0 10px; text-wrap: balance; }
+.room-head p { color: var(--ink-2); font-size: 1.05rem; }
 .room-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .shot {
   position: relative; margin: 0; overflow: hidden; isolation: isolate;
@@ -96,18 +96,13 @@
 .shot:hover::after { opacity: .25; }
 .shot figcaption {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
-  display: flex; flex-direction: column; gap: 2px;
-  padding: 40px 18px 16px;
+  padding: 40px 18px 18px;
   background: linear-gradient(transparent, rgba(11, 22, 48, .78));
 }
 .shot .word {
   font-family: var(--display); font-weight: 700; text-transform: uppercase;
   font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1; letter-spacing: .01em; color: #fff;
   text-shadow: 0 2px 18px rgba(11, 22, 48, .45);
-}
-.shot .sub {
-  font-family: var(--display); font-weight: 600; text-transform: uppercase;
-  letter-spacing: .14em; font-size: .74rem; color: rgba(255,255,255,.75);
 }
 /* the middle word picks up the brand blue, as in the posts */
 .shot:nth-child(2) .word { color: #cfe0ff; }

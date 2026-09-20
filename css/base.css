@@ -93,7 +93,6 @@ img { display: block; max-width: 100%; }
   font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .85rem;
   color: var(--brand-700);
 }
-.eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; border-radius: 2px; }
 .on-dark .eyebrow, .eyebrow.light { color: rgba(255,255,255,.88); }
 /* The four Preamble words, set as an outlined lettermark behind the content. */
 .hero-words {
