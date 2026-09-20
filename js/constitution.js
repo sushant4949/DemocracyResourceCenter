@@ -13,12 +13,12 @@
 
   const JOURNEY = [
     {
-      date: "9 December 1946", img: "objectives-resolution", day: "9", mon: "Dec", year: "1946", title: "The Assembly meets for the first time",
+      date: "9 December 1946", img: "assembly-chamber", day: "9", mon: "Dec", year: "1946", title: "The Assembly meets for the first time",
       short: "207 members gather in the Constitution Hall in New Delhi. Sachchidananda Sinha, the oldest member, takes the chair.",
       detail: "The Constituent Assembly had been elected indirectly by the provincial assemblies under the Cabinet Mission Plan. The Muslim League stayed away from this first sitting. Two days later, on 11 December 1946, Dr. Rajendra Prasad was elected its permanent President, a role he held through every session."
     },
     {
-      date: "13 December 1946", day: "13", mon: "Dec", year: "1946", title: "The Objectives Resolution",
+      date: "13 December 1946", img: "objectives-resolution", day: "13", mon: "Dec", year: "1946", title: "The Objectives Resolution",
       short: "Jawaharlal Nehru moves the resolution that sets out what the new republic will stand for.",
       detail: "The resolution promised an independent sovereign republic that would secure justice, equality of status and opportunity, and freedom of thought, expression, belief, faith and worship, with safeguards for minorities, backward classes and tribal areas. Adopted on 22 January 1947, it became the seed of the Preamble."
     },
@@ -28,17 +28,17 @@
       detail: "With Partition, the Assembly lost the members from areas that became Pakistan and its strength settled at 299. It now wrote the Constitution and ran the country at the same time, sitting as a legislature on some days and as a constitution-making body on others."
     },
     {
-      date: "29 August 1947", img: "ambedkar-listening", day: "29", mon: "Aug", year: "1947", title: "The Drafting Committee is formed",
+      date: "29 August 1947", img: "drafting-committee", day: "29", mon: "Aug", year: "1947", title: "The Drafting Committee is formed",
       short: "Seven members are appointed, with Dr. B.R. Ambedkar as Chairman.",
       detail: "The committee was Ambedkar, Alladi Krishnaswami Ayyar, N. Gopalaswami Ayyangar, K.M. Munshi, Syed Mohammad Saadulla, B.L. Mitter (later replaced by N. Madhava Rau) and D.P. Khaitan (later replaced by T.T. Krishnamachari). They worked from a draft prepared by the Constitutional Adviser, B.N. Rau."
     },
     {
-      date: "February 1948", day: "", mon: "Feb", year: "1948", title: "The draft goes public",
+      date: "February 1948", img: "committee-meeting", day: "", mon: "Feb", year: "1948", title: "The draft goes public",
       short: "The Draft Constitution is published so that citizens can send in their comments.",
       detail: "Copies went to the public, the press, provincial governments and lawyers' associations. Thousands of suggestions came back, and the Drafting Committee reworked the text in light of them — an early act of public consultation in a country that had never voted on universal franchise."
     },
     {
-      date: "4 November 1948", day: "4", mon: "Nov", year: "1948", title: "Clause by clause, line by line",
+      date: "4 November 1948", img: "ambedkar-listening", day: "4", mon: "Nov", year: "1948", title: "Clause by clause, line by line",
       short: "Ambedkar introduces the Draft. The Assembly debates it for over a year.",
       detail: "Members argued over the strength of the centre, the place of Hindi and other languages, reservations, the right to property, and whether Directive Principles should be enforceable. Thousands of amendments were moved, and many were accepted. The debates, published in full, remain one of the richest records of Indian public reasoning."
     },
@@ -53,7 +53,7 @@
       detail: "The handwritten English copy was calligraphed by Prem Behari Narain Raizada in flowing italic, and decorated by Nandalal Bose and artists from Santiniketan; Beohar Rammanohar Sinha illuminated the Preamble page. Jana Gana Mana was adopted as the national anthem and Vande Mataram given equal honour as the national song."
     },
     {
-      date: "26 January 1950", img: "prasad-nehru", day: "26", mon: "Jan", year: "1950", title: "It becomes ours",
+      date: "26 January 1950", img: "republic-day-1950", day: "26", mon: "Jan", year: "1950", title: "It becomes ours",
       short: "The Constitution comes into force. India becomes a republic.",
       detail: "The date was chosen deliberately: on 26 January 1930, the Congress had declared Purna Swaraj, complete independence. Dr. Rajendra Prasad was sworn in as the first President. The Constituent Assembly became the provisional Parliament until the first general election of 1951–52, in which every adult could vote."
     }
@@ -262,28 +262,145 @@
       </div>`).join("");
   }
 
-  function renderJourney() {
-    document.getElementById("journey").innerHTML = JOURNEY.map((s, i) => `
-      <article class="stop" data-i="${i}">
-        <time class="stop-when" datetime="${esc(s.date)}">
-          <span class="y">${esc(s.year)}</span>
-          ${s.day ? `<span class="d">${esc(s.day)}</span>` : ""}
-          <span class="m">${esc(s.mon)}</span>
-        </time>
-        <div class="stop-card${s.img ? " has-photo" : ""}">
-          <button class="stop-open" aria-expanded="false">
-            <span class="stop-n">Stop ${i + 1} of ${JOURNEY.length}</span>
-            <h3>${esc(s.title)}</h3>
-            <p class="stop-short">${esc(s.short)}</p>
-            <p class="stop-detail"><span>${esc(s.detail)}</span></p>
-            <span class="more">Read more <span aria-hidden="true">↓</span></span>
-          </button>
-          ${s.img ? photoHTML(byId(s.img), "stop-photo") : ""}
-        </div>
-      </article>`).join("");
+
+  /* ---------- The six Fundamental Rights ---------- */
+  const R_ICONS = {
+    equality: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M3 7h18"/><path d="m6 7-3 7a3.5 3.5 0 0 0 6 0z"/><path d="m18 7-3 7a3.5 3.5 0 0 0 6 0z"/></svg>',
+    freedom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7a3 3 0 1 0-3-3"/><path d="M13 4c0 5-4 7-8 7 1 4 4 6 8 6"/><path d="M13 17c4 0 7-3 7-7"/><path d="M8 21c2-2 5-3 8-3"/></svg>',
+    exploitation: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 8.5 7 6a3.5 3.5 0 0 0-5 5l2.5 2.5"/><path d="M14.5 15.5 17 18a3.5 3.5 0 0 0 5-5l-2.5-2.5"/><path d="m4 20 3-3"/><path d="m17 7 3-3"/></svg>',
+    religion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.5 2.5 3 4 3 6a3 3 0 0 1-6 0c0-2 1.5-3.5 3-6z"/><path d="M4 16h16"/><path d="M6 16c0 3 2.7 5 6 5s6-2 6-5"/></svg>',
+    culture: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3H2z"/><path d="M22 5h-6a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3h7z"/></svg>',
+    remedies: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>'
+  };
+
+  const RIGHTS = [
+    { icon: "equality", name: "Right to Equality", art: "Articles 14 to 18", line: "Same rules. Same respect.",
+      body: "No matter who you are, the law must treat you equally. Your caste, religion, gender or place of birth cannot be used to unfairly discriminate against you. The Constitution also abolishes untouchability and prohibits the State from granting certain titles.",
+      life: "Everyone deserves the same respect, whether they are sitting in the front row or the last row." },
+    { icon: "freedom", name: "Right to Freedom", art: "Articles 19 to 22", line: "Speak your mind. Move freely. Choose your path.",
+      body: "You have the freedom to express your views, gather peacefully, form associations, travel across India, live where you choose and choose your work. These Articles also protect life and personal liberty, guard against unfair punishment and give safeguards against arbitrary arrest. Article 21A guarantees free and compulsory education for children between six and fourteen.",
+      life: "You can share an idea, travel to another state, choose your work and expect your life and liberty to be protected." },
+    { icon: "exploitation", name: "Right against Exploitation", art: "Articles 23 to 24", line: "Nobody gets to use you unfairly.",
+      body: "No one can force you into bonded or forced labour. Human trafficking is prohibited, and children below fourteen cannot be employed in factories, mines or other hazardous work.",
+      life: "Your time, work and safety matter. Nobody has the right to make you work through force or exploitation." },
+    { icon: "religion", name: "Right to Freedom of Religion", art: "Articles 25 to 28", line: "Believe. Question. Choose.",
+      body: "You have the freedom of conscience and the right to profess, practise and propagate your religion, subject to constitutional limits such as public order, morality and health. The Constitution also protects freedoms around managing religious affairs and religious instruction.",
+      life: "What you believe, how you practise your faith and whether you choose to have a faith are personal matters protected by the Constitution." },
+    { icon: "culture", name: "Cultural and Educational Rights", art: "Articles 29 to 30", line: "Your language. Your culture. Your story.",
+      body: "India is home to many languages, cultures and traditions. These rights protect the ability of communities to conserve their distinct language, script and culture, and the right of religious and linguistic minorities to establish and run educational institutions of their choice.",
+      life: "The language you speak at home, the culture you grow up with and the stories your community carries are part of what makes India diverse." },
+    { icon: "remedies", name: "Right to Constitutional Remedies", art: "Article 32", line: "When your rights are in trouble, you have a way to fight back.",
+      body: "Fundamental Rights are not just promises on paper. If your Fundamental Rights are violated, Article 32 allows you to approach the Supreme Court for their enforcement. High Courts have the same power under Article 226.",
+      life: "If your Fundamental Rights are violated, the Constitution gives you a way to ask the courts to step in and protect them." }
+  ];
+
+  let rIndex = 0;
+
+  function renderRights() {
+    const el = document.getElementById("rights");
+    if (!el) return;
+    el.innerHTML = `
+      <div class="rlist" role="tablist" aria-label="The six Fundamental Rights">
+        ${RIGHTS.map((r, i) => `
+          <button class="ritem" role="tab" data-right="${i}" aria-selected="${i === 0}">
+            <span class="ri-ic">${R_ICONS[r.icon]}</span>
+            <span class="ri-txt">
+              <span class="ri-num">0${i + 1}</span>
+              <span class="ri-name">${esc(r.name)}</span>
+            </span>
+          </button>`).join("")}
+      </div>
+      <article class="rpanel" id="rpanel" aria-live="polite"></article>`;
+    paintRight(0);
   }
 
-  const initials = name => name.replace(/^(Dr\.|Sardar|Begum|Rajkumari)\s+/, "").split(/\s+/).map(w => w[0]).join("").slice(0, 2);
+  function paintRight(i) {
+    rIndex = Math.max(0, Math.min(RIGHTS.length - 1, i));
+    const r = RIGHTS[rIndex];
+    const panel = document.getElementById("rpanel");
+    panel.innerHTML = `
+      <span class="rp-ic">${R_ICONS[r.icon]}</span>
+      <span class="rp-art">${esc(r.art)}</span>
+      <h3>${esc(r.line)}</h3>
+      <p class="rp-body">${esc(r.body)}</p>
+      <p class="rp-life"><strong>In everyday life</strong>${esc(r.life)}</p>
+      <div class="rp-nav">
+        <button class="rp-step" data-rstep="-1" ${rIndex === 0 ? "disabled" : ""} aria-label="Previous right">‹</button>
+        <span class="rp-count">${rIndex + 1} of ${RIGHTS.length}</span>
+        <button class="rp-step" data-rstep="1" ${rIndex === RIGHTS.length - 1 ? "disabled" : ""} aria-label="Next right">›</button>
+      </div>`;
+    panel.classList.remove("in");
+    void panel.offsetWidth;
+    panel.classList.add("in");
+    document.querySelectorAll(".ritem").forEach((b, k) => {
+      b.classList.toggle("on", k === rIndex);
+      b.setAttribute("aria-selected", String(k === rIndex));
+    });
+    const active = document.querySelectorAll(".ritem")[rIndex];
+    if (active) active.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  /* ---------- Journey: a horizontal timeline ---------- */
+  let jIndex = 0;
+
+  function renderJourney() {
+    const el = document.getElementById("journey");
+    if (!el) return;
+    el.innerHTML = `
+      <div class="jour">
+        <div class="jour-stage">
+          <button class="jnav" data-jour="prev" aria-label="Previous stop">‹</button>
+          <article class="jcard" id="jcard" aria-live="polite"></article>
+          <button class="jnav" data-jour="next" aria-label="Next stop">›</button>
+        </div>
+        <div class="jrail-wrap">
+          <div class="jline"><i id="jfill"></i></div>
+          <div class="jrail" id="jrail" role="tablist" aria-label="Moments in the making of the Constitution" tabindex="0">
+            ${JOURNEY.map((s, i) => `
+              <button class="jstop" role="tab" data-jstop="${i}" aria-selected="${i === 0}">
+                <span class="js-year">${esc(s.year)}</span>
+                <span class="js-day">${s.day ? esc(s.day) : esc(s.mon)}</span>
+                <span class="js-mon">${s.day ? esc(s.mon) : "&nbsp;"}</span>
+              </button>`).join("")}
+          </div>
+        </div>
+      </div>`;
+    paintJourney(0, true);
+  }
+
+  function paintJourney(i, first) {
+    jIndex = Math.max(0, Math.min(JOURNEY.length - 1, i));
+    const s = JOURNEY[jIndex];
+    const h = byId(s.img);
+    const card = document.getElementById("jcard");
+    card.innerHTML = `
+      ${h ? `<button class="jphoto photo" data-img="${esc(h.id)}" aria-label="Open photograph: ${esc(h.title)}">
+              <img src="assets/history/${esc(h.file)}" alt="${esc(h.caption)}" loading="${first ? "eager" : "lazy"}">
+              <span class="photo-cap"><span>${esc(h.title)}</span><span class="zoom" aria-hidden="true">⤢</span></span>
+            </button>` : ""}
+      <div class="jtext">
+        <span class="jmeta">Stop ${jIndex + 1} of ${JOURNEY.length} <b>${esc(s.date)}</b></span>
+        <h3>${esc(s.title)}</h3>
+        <p class="jshort">${esc(s.short)}</p>
+        <p class="jdetail">${esc(s.detail)}</p>
+      </div>`;
+    card.classList.remove("in");
+    void card.offsetWidth;
+    card.classList.add("in");
+
+    document.querySelectorAll(".jstop").forEach((b, k) => {
+      b.classList.toggle("on", k === jIndex);
+      b.classList.toggle("done", k < jIndex);
+      b.setAttribute("aria-selected", String(k === jIndex));
+    });
+    const fill = document.getElementById("jfill");
+    if (fill) fill.style.width = ((jIndex / (JOURNEY.length - 1)) * 100) + "%";
+    document.querySelectorAll(".jnav").forEach(b => {
+      b.disabled = (b.dataset.jour === "prev" && jIndex === 0) || (b.dataset.jour === "next" && jIndex === JOURNEY.length - 1);
+    });
+    const active = document.querySelectorAll(".jstop")[jIndex];
+    if (active && !first) active.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  }
 
   function photoHTML(h, cls) {
     if (!h) return "";
@@ -411,6 +528,8 @@
       </details>`;
   }
 
+  const initials = name => name.replace(/^(Dr\.|Sardar|Begum|Rajkumari)\s+/, "").split(/\s+/).map(w => w[0]).join("").slice(0, 2);
+
   function renderMembers(group = "all") {
     const list = MEMBERS.filter(m => group === "all" || m.groups.includes(group));
     document.getElementById("members").innerHTML = list.map((m, i) => `
@@ -515,11 +634,12 @@
         io.unobserve(e.target);
       });
     }, { rootMargin: "0px 0px -12% 0px", threshold: .15 });
-    document.querySelectorAll(".stop, .fact strong[data-count], .reveal").forEach(el => io.observe(el));
+    document.querySelectorAll(".fact strong[data-count], .reveal").forEach(el => io.observe(el));
   }
 
   /* ---------- Wire up ---------- */
   renderFacts();
+  renderRights();
   renderJourney();
   renderMembers();
   renderCredits();
@@ -550,8 +670,17 @@
       return;
     }
 
-    const stop = e.target.closest(".stop-open");
-    if (stop) return expandToggle(stop, stop.closest(".stop"));
+    const rbtn = e.target.closest("[data-right]");
+    if (rbtn) return paintRight(+rbtn.dataset.right);
+
+    const rstep = e.target.closest("[data-rstep]");
+    if (rstep) return paintRight(rIndex + +rstep.dataset.rstep);
+
+    const jstop = e.target.closest("[data-jstop]");
+    if (jstop) return paintJourney(+jstop.dataset.jstop);
+
+    const jnav = e.target.closest("[data-jour]");
+    if (jnav) return paintJourney(jIndex + (jnav.dataset.jour === "next" ? 1 : -1));
 
     const member = e.target.closest(".member-btn");
     if (member) return expandToggle(member, member.closest(".member"));
@@ -574,6 +703,12 @@
       const rail = document.getElementById("rail");
       rail.scrollBy({ left: (scroll.dataset.rail === "next" ? 1 : -1) * Math.max(260, rail.clientWidth * .7), behavior: "smooth" });
     }
+  });
+
+  document.getElementById("jrail").addEventListener("keydown", e => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    e.preventDefault();
+    paintJourney(jIndex + (e.key === "ArrowRight" ? 1 : -1));
   });
 
   document.getElementById("rail").addEventListener("keydown", e => {

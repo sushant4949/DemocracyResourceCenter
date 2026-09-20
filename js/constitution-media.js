@@ -100,5 +100,23 @@ window.DOD_HISTORY = [
   "license": "CC BY-SA 4.0",
   "artist": "Abrsinha",
   "page": "https://commons.wikimedia.org/wiki/File:Constitution_Page1_Rammanohar.jpg"
+ },
+ {
+  "id": "committee-meeting",
+  "file": "committee-meeting.jpg",
+  "title": "A committee at work",
+  "caption": "Jawaharlal Nehru addressing a meeting of one of the Assembly's committees.",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Jawaharlal_Nehru_addressing_a_meeting_of_a_committee_of_the_Constituent_Assembly_New_Delhi,_1949.jpg"
+ },
+ {
+  "id": "republic-day-1950",
+  "file": "republic-day-1950.jpg",
+  "title": "The first Republic Day, 1950",
+  "caption": "President Rajendra Prasad in a horse-drawn carriage, readying for the first Republic Day parade.",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Rajendra_Prasad_readies_to_take_part_in_the_first_Republic_Day_parade.jpg"
  }
 ];
