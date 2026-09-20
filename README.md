@@ -1,6 +1,19 @@
-# Constitutional Literacy Assessment
+# Democracy & Constitutional Literacy
 
-A web-based constitutional literacy assessment by **[Dialogues on Democracy & Development](https://www.dialoguesondemocracy.org/)**.
+Free, browser-based learning tools by **[Dialogues on Democracy & Development](https://www.dialoguesondemocracy.org/)**.
+
+**Live site:** https://sushant4949.github.io/DoDAssessment/
+
+| Page | What it is |
+|---|---|
+| `index.html` | Home hub with a tile for each resource |
+| `assessment.html` | The constitutional literacy assessment (45 questions, personal report) |
+| `games.html` | The Preamble crossword |
+| `constitution.html` | The story of the Constitution: journey, people, amendments, architecture |
+
+Everything is static HTML, CSS and vanilla JavaScript — no build step, no framework, no backend.
+
+## The assessment
 
 Participants answer 45 multiple-choice questions in four sections and get a personalised report at the end.
 
@@ -32,9 +45,31 @@ Factual Knowledge questions are right or wrong. The exception is "All of the abo
 
 Answers are saved only in the participant's own browser, so nothing is sent to a server.
 
-## Editing questions
+## The Preamble crossword
 
-All questions, per-option scores, themes and explanations live in [`js/questions.js`](js/questions.js).
+A 20×20 grid built from 27 words that appear in the Preamble, from SOVEREIGN to FRATERNITY. It has a timer, progress tracking, check and reveal helpers, a peek at the Preamble itself, and saves progress in the browser. The layout was generated once and lives in [`js/crossword-data.js`](js/crossword-data.js); the clues sit alongside each answer there.
+
+## Our Constitution
+
+- A journey map of nine moments between December 1946 and January 1950, each expanding on tap
+- Eighteen members of the Constituent Assembly, filterable by Drafting Committee, women members, voices from the margins and guiding hands
+- An amendments timeline of nineteen landmark amendments, from the First (1951) to the 106th (2023)
+- The architecture of the text: Fundamental Rights, Directive Principles, Fundamental Duties and the division of powers
+
+All of the content lives in [`js/constitution.js`](js/constitution.js).
+
+## Editing content
+
+| To change | Edit |
+|---|---|
+| Assessment questions, scores, themes, explanations | [`js/questions.js`](js/questions.js) |
+| Crossword answers and clues | [`js/crossword-data.js`](js/crossword-data.js) |
+| Constitution journey, members, amendments | [`js/constitution.js`](js/constitution.js) |
+| Colours, type, shared furniture | [`css/base.css`](css/base.css) |
+
+## Design
+
+The brand colour (`#6699ff`), the Barlow Semi Condensed type and the logos come from the DoD website. The outlined JUSTICE / LIBERTY / EQUALITY / FRATERNITY lettermark and the line-art portrait of Dr. B.R. Ambedkar (`assets/ambedkar-outline.svg`, drawn in SVG for this site) run across the page headers.
 
 ## Running locally
 

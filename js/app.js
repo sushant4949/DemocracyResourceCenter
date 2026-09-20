@@ -243,6 +243,7 @@
     return `
       <div class="welcome">
         <section class="hero">
+          <a class="hero-back" href="./">&larr; All resources</a>
           <div class="hero-words" aria-hidden="true"><span>Justice</span><span>Liberty</span><span>Equality</span><span>Fraternity</span></div>
           <img class="hero-logo anim-rise" src="assets/logo-wordmark-white.png" alt="Dialogues on Democracy &amp; Development">
           <div class="hero-copy anim-rise" style="animation-delay:.08s">

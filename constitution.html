@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Constitution · Dialogues on Democracy &amp; Development</title>
+  <meta name="description" content="How India wrote its Constitution: the journey from 1946 to 1950, the members of the Constituent Assembly, the amendments that changed it, and what is inside it.">
+  <meta property="og:title" content="Our Constitution">
+  <meta property="og:description" content="The journey, the people and the amendments behind the Constitution of India.">
+  <meta property="og:image" content="assets/logo-mark.png">
+  <meta name="theme-color" content="#6699ff">
+  <link rel="icon" type="image/png" href="assets/logo-mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/constitution.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <img src="assets/logo-mark.png" alt="">
+        <span>Dialogues on Democracy<br>&amp; Development</span>
+      </a>
+      <ul>
+        <li><a class="nav-link" href="./">Home</a></li>
+        <li><a class="nav-link" href="assessment.html">Assessment</a></li>
+        <li><a class="nav-link" href="games.html">Games</a></li>
+        <li><a class="nav-link" href="constitution.html" aria-current="page">Our Constitution</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="con-hero has-figure">
+    <div class="hero-words" aria-hidden="true"><span>Justice</span><span>Liberty</span><span>Equality</span><span>Fraternity</span></div>
+      <div class="hero-figure" aria-hidden="true">
+        <svg viewBox="0 0 360 460" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <!-- head in profile, facing right: skull, forehead, nose, lips, chin, jaw -->
+        <path d="M152 256c-28-8-44-36-46-76-2-54 32-94 78-94 38 0 66 26 66 62 0 14-3 26-6 34l14 22c4 7 2 12-6 14l-10 3c0 9-1 16-4 20-3 4-8 6-14 6 1 9 0 16-4 21-7 9-20 13-36 12-10-1-20-3-32-6z"/>
+        <!-- receding hairline, swept back -->
+        <path d="M120 156c14-30 44-48 78-44 14 2 26 8 34 17"/>
+        <!-- ear -->
+        <path d="M150 182c-8-1-13 6-11 15 2 9 8 15 14 15"/>
+        <!-- spectacles: lens, bridge, temple arm -->
+        <circle cx="214" cy="172" r="25"/>
+        <path d="M239 166c6-2 11-1 14 2"/>
+        <path d="M189 168l-32 3"/>
+        <!-- brow -->
+        <path d="M194 145c10-4 20-3 27 2"/>
+        <!-- neck -->
+        <path d="M166 296c5-13 7-26 6-40"/>
+        <!-- shoulders and jacket -->
+        <path d="M28 458c4-52 18-84 42-102 12-9 28-16 48-21l48-13"/>
+        <path d="M332 458c-3-48-14-79-33-97-10-9-24-16-42-22l-34-12"/>
+        <!-- collar, lapels and tie -->
+        <path d="M166 296c11 17 23 27 35 31 10-3 20-12 27-23"/>
+        <path d="M152 320l48 48 8-46"/>
+        <path d="M242 310l-42 58"/>
+        <path d="M200 368l-14 20 18 72 20-72-14-20"/>
+        </svg>
+      </div>
+    <div class="wrap">
+      <p class="eyebrow light">Our Constitution</p>
+      <h1>Written by 299 people, over <em>165 days</em>, for a billion strangers</h1>
+      <p class="lede">India had never held a universal-franchise election when it sat down to write the longest constitution in the world. This is how it happened, who was in the room, and how the text has changed since.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap facts-band">
+      <div class="facts" id="facts"></div>
+    </section>
+
+    <section class="wrap section" id="journey-section">
+      <header class="section-head reveal">
+        <p class="eyebrow">The journey</p>
+        <h2>From a first sitting to a republic</h2>
+        <p class="section-sub">Nine moments between December 1946 and January 1950. Tap any stop to read more.</p>
+      </header>
+      <div class="journey" id="journey"></div>
+    </section>
+
+    <section class="section band-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">In the room</p>
+          <h2>The Constituent Assembly</h2>
+          <p class="section-sub">299 members signed the Constitution, 15 of them women. Tap a name to read what they brought to the table.</p>
+        </header>
+        <div class="filter-row reveal">
+          <div class="filters" id="filters"></div>
+          <span class="count" id="member-count"></span>
+        </div>
+        <div class="members" id="members"></div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <header class="section-head reveal">
+        <p class="eyebrow">Living document</p>
+        <h2>The amendments timeline</h2>
+        <p class="section-sub">106 amendments since 1951. These are the ones that changed how we live together. Use the arrows, or the left and right keys.</p>
+      </header>
+      <div class="rail-wrap reveal">
+        <button class="rail-btn" data-rail="prev" aria-label="Scroll timeline left">‹</button>
+        <div class="rail" id="rail" tabindex="0" role="group" aria-label="Amendments timeline"></div>
+        <button class="rail-btn" data-rail="next" aria-label="Scroll timeline right">›</button>
+      </div>
+      <div class="amend-detail" id="amend-detail"></div>
+      <aside class="basic-structure reveal">
+        <h3>The limit Parliament cannot cross</h3>
+        <p>In <em>Kesavananda Bharati v. State of Kerala</em> (1973), a bench of thirteen judges held that Parliament may amend any part of the Constitution but may not damage or destroy its basic structure — its supremacy, the republican and democratic form of government, secularism, the separation of powers, judicial review and the rule of law. Every amendment since has been written in the shadow of that ruling.</p>
+      </aside>
+    </section>
+
+    <section class="section band-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">What is inside</p>
+          <h2>The architecture</h2>
+          <p class="section-sub">Four parts of the text worth knowing by heart. Tap to open each one.</p>
+        </header>
+        <div class="architecture" id="architecture"></div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Now put it to work</h2>
+          <p>See how your own views line up with constitutional values, or write out the Preamble one letter at a time.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="assessment.html">Take the assessment</a>
+          <a class="btn btn-outline" href="games.html">Play the crossword</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div>
+        <strong>Dialogues on Democracy &amp; Development</strong><br>
+        <small>Creating safe, inclusive and engaging spaces for dialogue.</small>
+      </div>
+      <div class="foot-links">
+        <a href="assessment.html">Assessment</a>
+        <a href="games.html">Games</a>
+        <a href="https://www.dialoguesondemocracy.org/" target="_blank" rel="noopener">dialoguesondemocracy.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constitution.js"></script>
+</body>
+</html>

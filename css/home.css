@@ -1,0 +1,81 @@
+/* Home hub — Dialogues on Democracy & Development */
+
+.home-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: radial-gradient(120% 110% at 0% 0%, #7aa8ff 0%, var(--brand) 40%, var(--brand-700) 100%);
+  color: #fff; padding: clamp(34px, 6vw, 72px) 0 clamp(70px, 10vw, 128px);
+}
+.home-hero .hero-logo { width: clamp(84px, 9vw, 112px); margin-bottom: 26px; }
+.home-hero h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); font-weight: 700; margin: 14px 0 18px; max-width: 20ch; }
+.home-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, rgba(255,255,255,.3) 62%); padding: 0 .08em; }
+.home-hero .lede { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: rgba(255,255,255,.92); max-width: 58ch; }
+
+.home-main { margin-top: clamp(-90px, -8vw, -56px); position: relative; z-index: 2; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 22px); }
+.tile {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column; gap: 12px;
+  min-height: clamp(260px, 26vw, 330px);
+  border-radius: var(--r-lg); padding: clamp(20px, 2.2vw, 30px);
+  text-decoration: none; box-shadow: var(--shadow-md);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  animation: rise .6s var(--ease) both;
+}
+.tile:nth-child(2) { animation-delay: .08s; }
+.tile:nth-child(3) { animation-delay: .16s; }
+.tile:nth-child(4) { animation-delay: .24s; }
+.tile::after {
+  content: ""; position: absolute; right: -40px; bottom: -60px; width: 180px; height: 180px; z-index: -1;
+  border-radius: 50%; background: currentColor; opacity: .12;
+  transition: transform .45s var(--ease);
+}
+.tile:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.tile:hover::after { transform: scale(1.45); }
+.tile h2 {
+  font-family: var(--display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.02; letter-spacing: -.01em;
+}
+.tile p { font-size: .97rem; line-height: 1.45; opacity: .88; max-width: 30ch; }
+.tile-cta {
+  margin-top: auto; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: .5em;
+  border: 1.6px solid currentColor; border-radius: 999px;
+  padding: .55em 1.2em;
+  font-family: var(--display); font-weight: 600; font-size: 1rem; letter-spacing: .01em;
+  transition: background .25s, color .25s;
+}
+.tile:hover .tile-cta { background: currentColor; }
+.tile:hover .tile-cta span { color: inherit; }
+
+/* Colour ways — the CTA fill flips to the tile's own background on hover. */
+.t-navy { background: #22346e; color: #fff; }
+.t-navy:hover .tile-cta { color: #22346e; }
+.t-blue { background: var(--brand); color: #10213f; }
+.t-blue:hover .tile-cta { color: var(--brand); }
+.t-green { background: #4fb286; color: #0b2f22; }
+.t-green:hover .tile-cta { color: #4fb286; }
+.t-amber { background: #f0b429; color: #3b2a02; }
+.t-amber:hover .tile-cta { color: #f0b429; }
+
+.quote-strip {
+  margin: clamp(28px, 4vw, 48px) 0 0;
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(22px, 3vw, 38px); box-shadow: var(--shadow-sm);
+}
+.quote-strip blockquote { margin: 0; font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-style: italic; color: var(--ink-2); line-height: 1.5; }
+.quote-strip cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--display); font-weight: 600; letter-spacing: .04em; color: var(--brand-700); }
+.strip-stats { display: grid; gap: 14px; }
+.strip-stats div { display: flex; flex-direction: column; border-left: 3px solid var(--brand); padding-left: 14px; }
+.strip-stats strong { font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1; }
+.strip-stats span { font-size: .92rem; color: var(--ink-3); }
+
+@media (max-width: 1000px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quote-strip { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .tiles { grid-template-columns: 1fr; }
+  .tile { min-height: 0; }
+}
