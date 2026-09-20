@@ -5,7 +5,7 @@
   background: radial-gradient(120% 120% at 0% 0%, #7aa8ff 0%, var(--brand) 42%, var(--brand-700) 100%);
   color: #fff; padding: clamp(34px, 6vw, 70px) 0 clamp(70px, 10vw, 120px);
 }
-.dev-hero h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 700; margin-top: 14px; max-width: 20ch; }
+.dev-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); font-weight: 700; margin-top: 14px; max-width: 24ch; text-wrap: balance; }
 .dev-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, rgba(255,255,255,.3) 62%); padding: 0 .08em; }
 
 .dev-main { margin-top: clamp(-90px, -8vw, -56px); position: relative; z-index: 2; padding-bottom: 20px; }

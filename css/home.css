@@ -15,8 +15,8 @@
 .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 22px); }
 .tile {
   position: relative; overflow: hidden; isolation: isolate;
-  display: flex; flex-direction: column; gap: 12px;
-  min-height: clamp(260px, 26vw, 330px);
+  display: flex; flex-direction: column; gap: 18px;
+  min-height: clamp(200px, 20vw, 250px);
   border-radius: var(--r-lg); padding: clamp(20px, 2.2vw, 30px);
   text-decoration: none; box-shadow: var(--shadow-md);
   transition: transform .3s var(--ease), box-shadow .3s var(--ease);
@@ -34,9 +34,9 @@
 .tile:hover::after { transform: scale(1.45); }
 .tile h2 {
   font-family: var(--display); font-weight: 700; text-transform: uppercase;
-  font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.02; letter-spacing: -.01em;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem); line-height: 1.04; letter-spacing: -.005em;
+  text-wrap: balance; max-width: 12ch;
 }
-.tile p { font-size: .97rem; line-height: 1.45; opacity: .88; max-width: 30ch; }
 .tile-cta {
   margin-top: auto; align-self: flex-start;
   display: inline-flex; align-items: center; gap: .5em;
@@ -45,18 +45,13 @@
   font-family: var(--display); font-weight: 600; font-size: 1rem; letter-spacing: .01em;
   transition: background .25s, color .25s;
 }
-.tile:hover .tile-cta { background: currentColor; }
-.tile:hover .tile-cta span { color: inherit; }
+.tile:hover .tile-cta, .tile:focus-visible .tile-cta { background: var(--cta-on); color: var(--cta-ink); border-color: var(--cta-on); }
 
-/* Colour ways — the CTA fill flips to the tile's own background on hover. */
-.t-navy { background: #22346e; color: #fff; }
-.t-navy:hover .tile-cta { color: #22346e; }
-.t-blue { background: var(--brand); color: #10213f; }
-.t-blue:hover .tile-cta { color: var(--brand); }
-.t-sky { background: #8fb6ff; color: #12234f; }
-.t-sky:hover .tile-cta { color: #8fb6ff; }
-.t-deep { background: var(--brand-700); color: #fff; }
-.t-deep:hover .tile-cta { color: var(--brand-700); }
+/* Colour ways. --cta-on is the pill fill on hover, --cta-ink the text on it. */
+.t-navy { background: #22346e; color: #fff; --cta-on: #fff; --cta-ink: #22346e; }
+.t-blue { background: var(--brand); color: #10213f; --cta-on: #12234f; --cta-ink: #fff; }
+.t-sky { background: #8fb6ff; color: #12234f; --cta-on: #12234f; --cta-ink: #fff; }
+.t-deep { background: var(--brand-700); color: #fff; --cta-on: #fff; --cta-ink: var(--brand-700); }
 
 /* A duotone photo band, in the style of the DoD social posts:
    the photograph desaturated, the brand blue laid over it. */
@@ -72,14 +67,10 @@
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(105deg, rgba(27,47,107,.92) 12%, rgba(51,102,204,.78) 52%, rgba(102,153,255,.58) 100%);
 }
-.pb-inner { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 48px); align-items: center; }
-.pb-inner .eyebrow { grid-column: 1 / -1; }
-.photo-band blockquote { margin: 0; font-size: clamp(1.05rem, 1.7vw, 1.3rem); font-style: italic; color: rgba(255,255,255,.92); line-height: 1.55; }
+.pb-inner { max-width: 64ch; }
+.pb-inner .eyebrow { margin-bottom: 16px; }
+.photo-band blockquote { margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); font-style: italic; color: rgba(255,255,255,.92); line-height: 1.55; }
 .photo-band cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--display); font-weight: 600; letter-spacing: .04em; color: #fff; }
-.strip-stats { display: grid; gap: 16px; }
-.strip-stats div { display: flex; flex-direction: column; border-left: 3px solid rgba(255,255,255,.55); padding-left: 14px; }
-.strip-stats strong { font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1; color: #fff; }
-.strip-stats span { font-size: .92rem; color: rgba(255,255,255,.72); }
 
 /* Three photographs from DoD sessions, blue-framed like the posts. */
 .room { margin-top: clamp(34px, 5vw, 64px); }
