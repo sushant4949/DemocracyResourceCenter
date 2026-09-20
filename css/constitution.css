@@ -333,6 +333,7 @@
 }
 .vid-meta h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
 
+.vid-credit { margin-top: 12px; text-align: center; color: var(--ink-3); font-size: .88rem; }
 .vid-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-top: 26px; }
 #vid-more { display: inline-flex; align-items: center; gap: .6em; }
 #vid-more small { font-family: var(--body); font-weight: 400; font-size: .82rem; color: var(--ink-3); }

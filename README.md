@@ -60,7 +60,7 @@ Answers are saved only in the participant's own browser, so nothing is sent to a
 - Eighteen members of the Constituent Assembly with portraits and links to their Wikipedia pages, filterable by Drafting Committee, women members, voices from the margins and guiding hands
 - An amendments timeline of nineteen landmark amendments, from the First (1951) to the 106th (2023)
 - A gallery of eleven historical photographs with a lightbox, including the Drafting Committee of 1947 and the Assembly in session
-- All forty films from the Constituent Assembly Debates playlist, six at a time, playing in place
+- All forty recordings from the Constituent Assembly Debates playlist (footage from the Prasar Bharati Archives), six at a time, playing in place
 - The architecture of the text: Fundamental Rights, Directive Principles, Fundamental Duties and the division of powers
 
 Content lives in [`js/constitution.js`](js/constitution.js); image captions and credits in [`js/constitution-media.js`](js/constitution-media.js).
