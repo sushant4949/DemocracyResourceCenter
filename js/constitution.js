@@ -60,7 +60,7 @@
   ];
 
   const MEMBER_GROUPS = [
-    { id: "all", label: "Everyone" },
+    { id: "all", label: "All profiles" },
     { id: "drafting", label: "Drafting Committee" },
     { id: "women", label: "Women members" },
     { id: "margins", label: "Voices from the margins" },
@@ -441,7 +441,9 @@
         </button>
         <a class="m-wiki" href="${esc(m.wiki)}" target="_blank" rel="noopener">Read on Wikipedia <span aria-hidden="true">↗</span></a>
       </article>`).join("");
-    document.getElementById("member-count").textContent = list.length + (list.length === 1 ? " member" : " members");
+    document.getElementById("member-count").textContent = group === "all"
+      ? list.length + " profiles from an Assembly of 299"
+      : list.length + " of " + MEMBERS.length + " profiles";
   }
 
   function renderCredits() {
