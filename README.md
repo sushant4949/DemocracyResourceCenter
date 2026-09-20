@@ -59,7 +59,8 @@ Answers are saved only in the participant's own browser, so nothing is sent to a
 - A journey map of nine dated moments between December 1946 and January 1950, each expanding on tap, most with a photograph from the time
 - Eighteen members of the Constituent Assembly with portraits and links to their Wikipedia pages, filterable by Drafting Committee, women members, voices from the margins and guiding hands
 - An amendments timeline of nineteen landmark amendments, from the First (1951) to the 106th (2023)
-- A gallery of nine historical photographs with a lightbox
+- A gallery of eleven historical photographs with a lightbox, including the Drafting Committee of 1947 and the Assembly in session
+- All forty films from the Constituent Assembly Debates playlist, six at a time, playing in place
 - The architecture of the text: Fundamental Rights, Directive Principles, Fundamental Duties and the division of powers
 
 Content lives in [`js/constitution.js`](js/constitution.js); image captions and credits in [`js/constitution-media.js`](js/constitution-media.js).
@@ -76,6 +77,7 @@ Historical images come from Wikimedia Commons and are public domain or freely li
 | Crossword layouts and clues | [`js/crossword-data.js`](js/crossword-data.js) |
 | Quiz questions | [`js/quiz-data.js`](js/quiz-data.js) |
 | Constitution journey, members, amendments | [`js/constitution.js`](js/constitution.js) |
+| Video list (ids, titles, durations) | [`js/videos-data.js`](js/videos-data.js) |
 | Colours, type, shared furniture | [`css/base.css`](css/base.css) |
 
 ## Design

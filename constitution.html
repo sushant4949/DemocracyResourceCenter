@@ -60,6 +60,16 @@
           <h2>The Constituent Assembly</h2>
           <p class="section-sub">299 members signed the Constitution, 15 of them women. Tap a name to read what they brought to the table.</p>
         </header>
+        <figure class="committee reveal">
+          <button class="photo committee-photo" data-img="drafting-committee" aria-label="Open photograph: The Drafting Committee, 29 August 1947">
+            <img src="assets/history/drafting-committee.jpg" alt="The seven members of the Drafting Committee seated and standing for a group photograph in 1947" loading="lazy">
+          </button>
+          <figcaption>
+            <strong>The Drafting Committee, 29 August 1947</strong>
+            Seated from the left: N. Madhava Rau, Syed Mohammad Saadulla, Dr. B.R. Ambedkar as Chairman, Alladi Krishnaswami Ayyar and Sir Benegal Narsing Rau. Standing behind them: S.N. Mukherjee, Jugal Kishore Khanna and Kewal Krishnan.
+          </figcaption>
+        </figure>
+
         <div class="filter-row reveal">
           <div class="filters" id="filters"></div>
           <span class="count" id="member-count"></span>
@@ -97,7 +107,21 @@
       </div>
     </section>
 
-    <section class="section band-tint">
+    <section class="section band-tint" id="videos-section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <h2>Hear the Assembly for yourself</h2>
+          <p class="section-sub">Forty short films on the Constituent Assembly debates, made by Dialogues on Democracy &amp; Development. Press play to watch here.</p>
+        </header>
+        <div class="videos" id="videos"></div>
+        <div class="vid-actions">
+          <button class="btn btn-outline" id="vid-more"></button>
+          <a class="btn btn-ghost" href="https://www.youtube.com/playlist?list=PLqtVCj5iilH5AOeOlzkg7XzK7q5d0zxQd" target="_blank" rel="noopener">Open the playlist on YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap">
         <header class="section-head reveal">
           <h2>The architecture</h2>
@@ -172,6 +196,7 @@
   </div>
 
   <script src="js/constitution-media.js"></script>
+  <script src="js/videos-data.js"></script>
   <script src="js/constitution.js"></script>
 </body>
 </html>

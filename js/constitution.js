@@ -341,6 +341,78 @@
     box.querySelector(".lb-count").textContent = (lightIndex + 1) + " / " + HISTORY.length;
   }
 
+  /* ---------- Videos ---------- */
+  const VIDEOS = window.DOD_VIDEOS || [];
+  const PLAYLIST = window.DOD_PLAYLIST || "";
+  const STEP = 6;
+  let shown = STEP;
+
+  function videoCard(v, i) {
+    return `
+      <article class="vid" data-i="${i}" ${i < shown ? "" : "hidden"}>
+        <button class="vid-play" data-video="${esc(v.id)}" aria-label="Play: ${esc(v.title)}">
+          <span class="vid-thumb">
+            <img src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span class="vid-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="vid-dur">${esc(v.dur)}</span>
+          </span>
+        </button>
+        <div class="vid-meta">
+          ${v.year ? `<span class="vid-year">${esc(v.year)}</span>` : ""}
+          <h3>${esc(v.title)}</h3>
+        </div>
+      </article>`;
+  }
+
+  function renderVideos() {
+    const el = document.getElementById("videos");
+    if (!el || !VIDEOS.length) return;
+    el.innerHTML = VIDEOS.map(videoCard).join("");
+    paintVideoToggle();
+  }
+
+  function paintVideoToggle() {
+    const btn = document.getElementById("vid-more");
+    if (!btn) return;
+    const left = VIDEOS.length - shown;
+    btn.innerHTML = left > 0
+      ? `<span class="plus" aria-hidden="true">+</span> Show ${Math.min(STEP, left)} more <small>${left} left of ${VIDEOS.length}</small>`
+      : `<span class="plus minus" aria-hidden="true">+</span> Show fewer`;
+    btn.dataset.mode = left > 0 ? "more" : "less";
+  }
+
+  function toggleVideos() {
+    const btn = document.getElementById("vid-more");
+    if (btn.dataset.mode === "less") {
+      shown = STEP;
+      document.getElementById("videos").scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      shown = Math.min(VIDEOS.length, shown + STEP);
+    }
+    document.querySelectorAll(".vid").forEach((el, i) => {
+      el.hidden = i >= shown;
+      if (i >= shown) { const f = el.querySelector("iframe"); if (f) resetVideo(el); }
+    });
+    paintVideoToggle();
+  }
+
+  function resetVideo(card) {
+    const v = VIDEOS[+card.dataset.i];
+    card.querySelector(".vid-frame")?.replaceWith(Object.assign(document.createElement("div"), { innerHTML: videoCard(v, +card.dataset.i) }).firstElementChild.querySelector(".vid-play"));
+  }
+
+  function playVideo(btn) {
+    const id = btn.dataset.video;
+    const frame = document.createElement("div");
+    frame.className = "vid-frame";
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0"
+      title="Constituent Assembly Debates video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>`;
+    btn.replaceWith(frame);
+  }
+
   function renderPhotoCredits() {
     const el = document.getElementById("photo-credits");
     if (!el) return;
@@ -465,12 +537,18 @@
   renderAmendments();
   renderArchitecture();
   renderGallery();
+  renderVideos();
   renderPhotoCredits();
 
   document.getElementById("filters").innerHTML = MEMBER_GROUPS.map((g, i) =>
     `<button class="filter${i === 0 ? " on" : ""}" data-group="${g.id}">${esc(g.label)}</button>`).join("");
 
   document.addEventListener("click", e => {
+    const play = e.target.closest("[data-video]");
+    if (play) return playVideo(play);
+
+    if (e.target.closest("#vid-more")) return toggleVideos();
+
     const photo = e.target.closest("[data-img]");
     if (photo) return openLight(photo.dataset.img);
 

@@ -3,6 +3,24 @@
    the licence and author of each are shown in the credits on the page. */
 window.DOD_HISTORY = [
  {
+  "id": "drafting-committee",
+  "file": "drafting-committee.jpg",
+  "title": "The Drafting Committee, 29 August 1947",
+  "caption": "The seven members charged with drafting the Constitution, with Dr. B.R. Ambedkar seated at the centre.",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Dr._Babasaheb_Ambedkar_Chairman,_Drafting_Committee_of_the_Indian_Constitution_with_other_members_on_Aug._29,_1947.jpg"
+ },
+ {
+  "id": "assembly-chamber",
+  "file": "assembly-chamber.jpg",
+  "title": "Inside the chamber",
+  "caption": "Members of the Constituent Assembly in session, with Jawaharlal Nehru at his desk in the front row.",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Indian_Constituent_Assembly.JPG"
+ },
+ {
   "id": "objectives-resolution",
   "file": "objectives-resolution.jpg",
   "title": "Nehru addresses the House, December 1946",
