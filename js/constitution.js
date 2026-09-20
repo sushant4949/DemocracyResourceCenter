@@ -204,47 +204,121 @@
     { n: 106, year: 2023, tag: "representation", title: "One-third for women", text: "Reserved one-third of the seats in the Lok Sabha and the state legislative assemblies for women. It takes effect after the next census and delimitation exercise." }
   ];
 
-  const ARCHITECTURE = [
-    {
-      title: "Directive Principles", range: "Articles 36–51",
-      text: "Instructions to the State. Courts cannot enforce them, but they are meant to guide every law and policy.",
-      items: [
-        "Secure a social order in which justice — social, economic and political — informs all institutions (38)",
-        "Adequate means of livelihood, no concentration of wealth, equal pay for equal work (39)",
-        "Free legal aid so poverty does not deny anyone justice (39A)",
-        "Village panchayats as units of self-government (40)",
-        "Right to work, education and public assistance in old age, sickness and disability (41)",
-        "Just and humane conditions of work and maternity relief (42); living wage (43)",
-        "Early childhood care and education for children under six (45); promotion of the interests of Scheduled Castes, Scheduled Tribes and other weaker sections (46)"
-      ]
-    },
-    {
-      title: "Fundamental Duties", range: "Article 51A",
-      text: "Added in 1976, with one more added in 2002. They bind citizens rather than the State.",
-      items: [
-        "Abide by the Constitution and respect the flag and the anthem",
-        "Cherish the ideals of the freedom struggle",
-        "Uphold the sovereignty, unity and integrity of India, and defend the country when called upon",
-        "Promote harmony and the spirit of common brotherhood, and renounce practices derogatory to the dignity of women",
-        "Value and preserve the composite culture of the country",
-        "Protect the environment and have compassion for living creatures",
-        "Develop a scientific temper, humanism, and the spirit of inquiry and reform",
-        "Safeguard public property and abjure violence; strive towards excellence",
-        "Provide opportunities for education to one's child between six and fourteen"
-      ]
-    },
-    {
-      title: "How power is divided", range: "Parts V, VI, XI and the Seventh Schedule",
-      text: "A union of states: strong at the centre, but with real authority held by the states.",
-      items: [
-        "Union list: defence, foreign affairs, currency, railways, citizenship",
-        "State list: police, public health, agriculture, land, local government",
-        "Concurrent list: education, criminal law, marriage, forests — both may legislate, and Union law usually prevails",
-        "Elections run by an independent Election Commission (324); accounts audited by the Comptroller and Auditor General (148)",
-        "A judiciary that can strike down any law, including a constitutional amendment that damages the basic structure"
-      ]
-    }
+  /* The Parts of the Constitution. It began with 22; four were added later and one repealed. */
+  const PARTS = [
+    { no: "I", name: "The Union and its territory", arts: "Articles 1 to 4",
+      about: "Names the country, lists the states and union territories, and lets Parliament create new states or redraw old ones." },
+    { no: "II", name: "Citizenship", arts: "Articles 5 to 11",
+      about: "Who counted as a citizen when the Constitution began, and Parliament's power to make citizenship law since." },
+    { no: "III", name: "Fundamental Rights", arts: "Articles 12 to 35", tag: "The six rights",
+      about: "The rights every person can enforce in court: equality, freedom, against exploitation, freedom of religion, cultural and educational rights, and constitutional remedies." },
+    { no: "IV", name: "Directive Principles", arts: "Articles 36 to 51",
+      about: "Instructions to the State. Courts cannot enforce them, but they are meant to guide every law and policy.",
+      list: ["A social order in which justice informs all institutions (38)",
+             "Adequate livelihood, no concentration of wealth, equal pay for equal work (39)",
+             "Free legal aid so poverty does not deny anyone justice (39A)",
+             "Village panchayats as units of self-government (40)",
+             "Work, education and public assistance in old age, sickness and disability (41)",
+             "Early childhood care and education for children under six (45)",
+             "Promotion of the interests of Scheduled Castes, Scheduled Tribes and other weaker sections (46)"] },
+    { no: "IVA", name: "Fundamental Duties", arts: "Article 51A", tag: "Added 1976",
+      about: "Eleven duties that bind citizens rather than the State. Ten were added in 1976 and one more in 2002.",
+      list: ["Abide by the Constitution and respect the flag and the anthem",
+             "Cherish the ideals of the freedom struggle",
+             "Uphold the sovereignty, unity and integrity of India",
+             "Promote harmony, and renounce practices derogatory to the dignity of women",
+             "Preserve the composite culture of the country",
+             "Protect the environment and have compassion for living creatures",
+             "Develop a scientific temper and the spirit of inquiry",
+             "Provide education to one's child between six and fourteen"] },
+    { no: "V", name: "The Union", arts: "Articles 52 to 151",
+      about: "The President and Vice President, the Council of Ministers, Parliament, the Supreme Court and the Comptroller and Auditor General." },
+    { no: "VI", name: "The States", arts: "Articles 152 to 237",
+      about: "Governors, state legislatures, state governments and the High Courts. The state mirror of Part V." },
+    { no: "VII", name: "Former Part B states", arts: "Article 238", tag: "Repealed 1956",
+      about: "Covered the princely states grouped as Part B. It was repealed when the states were reorganised on linguistic lines." },
+    { no: "VIII", name: "The Union Territories", arts: "Articles 239 to 242",
+      about: "How territories that are not states are administered, and how some of them get their own legislatures." },
+    { no: "IX", name: "The Panchayats", arts: "Articles 243 to 243-O", tag: "Added 1992",
+      about: "Elected village government with a fixed five year term, and a third of all seats reserved for women." },
+    { no: "IXA", name: "The Municipalities", arts: "Articles 243-P to 243-ZG", tag: "Added 1992",
+      about: "The same constitutional footing for towns and cities, with ward committees and regular elections." },
+    { no: "IXB", name: "Co-operative societies", arts: "Articles 243-ZH to 243-ZT", tag: "Added 2011",
+      about: "How co-operatives are formed and run, after the right to form them became a fundamental right." },
+    { no: "X", name: "Scheduled and tribal areas", arts: "Articles 244 to 244A",
+      about: "Special administration for the areas listed in the Fifth and Sixth Schedules, with councils of their own." },
+    { no: "XI", name: "The Union and the States", arts: "Articles 245 to 263",
+      about: "Who may make law on what, and how the Union and the states share administration.",
+      list: ["Union list: defence, foreign affairs, currency, railways, citizenship",
+             "State list: police, public health, agriculture, land, local government",
+             "Concurrent list: education, criminal law, marriage, forests, where Union law usually prevails",
+             "Inter-state councils and river water disputes (262, 263)"] },
+    { no: "XII", name: "Finance, property and contracts", arts: "Articles 264 to 300A",
+      about: "Taxes, borrowing, the Finance Commission and the sharing of revenue. Article 300A holds the right to property." },
+    { no: "XIII", name: "Trade and commerce within India", arts: "Articles 301 to 307",
+      about: "Trade, commerce and movement across state borders stay free, so India works as a single market." },
+    { no: "XIV", name: "Services under the Union and States", arts: "Articles 308 to 323",
+      about: "The civil services, their recruitment and protections, and the Public Service Commissions." },
+    { no: "XIVA", name: "Tribunals", arts: "Articles 323A to 323B", tag: "Added 1976",
+      about: "Tribunals for service matters, tax, land reform and other disputes, outside the ordinary courts." },
+    { no: "XV", name: "Elections", arts: "Articles 324 to 329",
+      about: "An independent Election Commission, one electoral roll for all, and no discrimination in who may vote." },
+    { no: "XVI", name: "Special provisions for certain classes", arts: "Articles 330 to 342",
+      about: "Reserved seats and safeguards for Scheduled Castes, Scheduled Tribes and other specified groups." },
+    { no: "XVII", name: "Official language", arts: "Articles 343 to 351",
+      about: "Hindi and English in official use at the Union, the languages of the states, and language in the courts." },
+    { no: "XVIII", name: "Emergency provisions", arts: "Articles 352 to 360",
+      about: "National emergency, President's rule in a state and financial emergency, with the safeguards added in 1978." },
+    { no: "XIX", name: "Miscellaneous", arts: "Articles 361 to 367",
+      about: "Protections for the President and Governors, and the rules for reading the Constitution itself." },
+    { no: "XX", name: "Amendment of the Constitution", arts: "Article 368",
+      about: "How the text can be changed, and the majorities needed. The courts have held that its basic structure cannot be destroyed." },
+    { no: "XXI", name: "Temporary and transitional provisions", arts: "Articles 369 to 392",
+      about: "Special arrangements for particular states as the new system settled in, including Article 370." },
+    { no: "XXII", name: "Short title and commencement", arts: "Articles 393 to 395",
+      about: "The closing formalities: the name of the Constitution, the date it came into force, the Hindi text and the laws it repealed." }
   ];
+
+  let pIndex = 2;
+
+  function renderParts() {
+    const el = document.getElementById("parts");
+    if (!el) return;
+    el.innerHTML = `
+      <article class="pt-panel" id="pt-panel" aria-live="polite"></article>
+      <div class="pt-grid" role="tablist" aria-label="Parts of the Constitution">
+        ${PARTS.map((p, i) => `
+          <button class="pt" role="tab" data-part="${i}" aria-selected="${i === pIndex}">
+            <span class="pt-no">${esc(p.no)}</span>
+            <span class="pt-name">${esc(p.name)}</span>
+          </button>`).join("")}
+      </div>`;
+    paintPart(pIndex);
+  }
+
+  function paintPart(i) {
+    pIndex = Math.max(0, Math.min(PARTS.length - 1, i));
+    const p = PARTS[pIndex];
+    const panel = document.getElementById("pt-panel");
+    panel.innerHTML = `
+      <span class="ptp-no">Part ${esc(p.no)}</span>
+      <div class="ptp-body">
+        <div class="ptp-head">
+          <h3>${esc(p.name)}</h3>
+          <span class="ptp-arts">${esc(p.arts)}</span>
+          ${p.tag ? `<span class="ptp-tag">${esc(p.tag)}</span>` : ""}
+        </div>
+        <p>${esc(p.about)}</p>
+        ${p.list ? `<ul class="ptp-list">${p.list.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      </div>`;
+    panel.classList.remove("in");
+    void panel.offsetWidth;
+    panel.classList.add("in");
+    document.querySelectorAll(".pt").forEach((b, k) => {
+      b.classList.toggle("on", k === pIndex);
+      b.setAttribute("aria-selected", String(k === pIndex));
+    });
+  }
 
   const ord = n => { const r = n % 100; if (r >= 11 && r <= 13) return "th"; return ["th", "st", "nd", "rd"][n % 10] || "th"; };
   const HISTORY = window.DOD_HISTORY || [];
@@ -648,21 +722,6 @@
     box.classList.add("flash");
   }
 
-  function renderArchitecture() {
-    document.getElementById("architecture").innerHTML = ARCHITECTURE.map(a => `
-      <article class="arch">
-        <button class="arch-btn" aria-expanded="false">
-          <span class="arch-head">
-            <h3>${esc(a.title)}</h3>
-            <span class="arch-range">${esc(a.range)}</span>
-            <span class="m-chev" aria-hidden="true">+</span>
-          </span>
-          <span class="arch-text">${esc(a.text)}</span>
-        </button>
-        <div class="arch-body"><ul class="arch-list">${a.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
-      </article>`).join("");
-  }
-
   /* ---------- Behaviour ---------- */
   function expandToggle(btn, wrapper) {
     const open = btn.getAttribute("aria-expanded") === "true";
@@ -703,7 +762,7 @@
   renderMembers();
   renderCredits();
   renderAmendments();
-  renderArchitecture();
+  renderParts();
   renderGallery();
   renderVideos();
   renderPhotoCredits();
@@ -750,8 +809,8 @@
     const member = e.target.closest(".member-btn");
     if (member) return expandToggle(member, member.closest(".member"));
 
-    const arch = e.target.closest(".arch-btn");
-    if (arch) return expandToggle(arch, arch.closest(".arch"));
+    const part = e.target.closest("[data-part]");
+    if (part) return paintPart(+part.dataset.part);
 
     const filter = e.target.closest(".filter");
     if (filter) {

@@ -61,7 +61,7 @@ Answers are saved only in the participant's own browser, so nothing is sent to a
 - An amendments timeline of nineteen landmark amendments, from the First (1951) to the 106th (2023)
 - A gallery of eleven historical photographs with a lightbox, including the Drafting Committee of 1947 and the Assembly in session
 - All forty recordings from the Constituent Assembly Debates playlist (footage from the Prasar Bharati Archives), six at a time, playing in place
-- The architecture of the text: Directive Principles, Fundamental Duties and the division of powers
+- A map of all the Parts of the Constitution, from Part I to Part XXII plus the four added later, each explaining what it covers
 - A Trivia band that slides through facts from the Press Information Bureau factsheet
 
 Content lives in [`js/constitution.js`](js/constitution.js); image captions and credits in [`js/constitution-media.js`](js/constitution-media.js).
