@@ -41,13 +41,13 @@
   padding: 8px 4px 7px; box-shadow: var(--shadow-sm);
   transition: background .3s, border-color .3s, transform .3s var(--ease), box-shadow .3s;
 }
-.stop-when .d { font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1; color: var(--brand-700); font-variant-numeric: tabular-nums; }
-.stop-when .m { font-family: var(--display); font-weight: 700; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-top: 2px; }
-.stop-when .y { font-family: var(--display); font-weight: 600; font-size: .85rem; letter-spacing: .08em; color: var(--ink-3); }
+.stop-when .d { font-family: var(--display); font-weight: 700; font-size: 1.9rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; margin-top: 1px; }
+.stop-when .m { font-family: var(--display); font-weight: 700; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-top: 1px; }
+.stop-when .y { font-family: var(--display); font-weight: 700; font-size: .95rem; letter-spacing: .14em; color: var(--brand-700); font-variant-numeric: tabular-nums; }
 .stop:hover .stop-when { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .stop.open .stop-when { background: var(--brand); border-color: var(--brand-700); }
-.stop.open .stop-when .d, .stop.open .stop-when .m { color: #fff; }
-.stop.open .stop-when .y { color: rgba(255,255,255,.85); }
+.stop.open .stop-when .y, .stop.open .stop-when .d { color: #fff; }
+.stop.open .stop-when .m { color: rgba(255,255,255,.85); }
 .stop-n { font-family: var(--display); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: .75rem; color: var(--ink-3); }
 .stop-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
@@ -222,9 +222,8 @@
   .journey::before { left: 36px; }
   .stop { padding-left: 90px; }
   .stop-when { width: 72px; top: 12px; padding: 6px 2px 5px; }
-  .stop-when .d { font-size: 1.6rem; }
-  .stop-when .m { font-size: .82rem; letter-spacing: .1em; }
-  .stop-when .y { font-size: .78rem; }
+  .stop-when .d { font-size: 1.55rem; }
+  .stop-when .m, .stop-when .y { font-size: .8rem; letter-spacing: .1em; }
   .rail-wrap { grid-template-columns: 36px minmax(0, 1fr) 36px; }
   .rail-btn { width: 36px; height: 36px; }
 }

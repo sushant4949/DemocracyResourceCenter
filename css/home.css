@@ -104,12 +104,22 @@
 .shot:hover img { transform: scale(1.05); filter: grayscale(.15) contrast(1.02); }
 .shot:hover::after { opacity: .25; }
 .shot figcaption {
-  position: absolute; left: 14px; bottom: 12px; z-index: 1;
-  font-family: var(--display); font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  font-size: .82rem; color: #fff; background: rgba(19,32,63,.42);
-  border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .3em .9em;
-  backdrop-filter: blur(4px);
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 40px 18px 16px;
+  background: linear-gradient(transparent, rgba(11, 22, 48, .78));
 }
+.shot .word {
+  font-family: var(--display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1; letter-spacing: .01em; color: #fff;
+  text-shadow: 0 2px 18px rgba(11, 22, 48, .45);
+}
+.shot .sub {
+  font-family: var(--display); font-weight: 600; text-transform: uppercase;
+  letter-spacing: .14em; font-size: .74rem; color: rgba(255,255,255,.75);
+}
+/* the middle word picks up the brand blue, as in the posts */
+.shot:nth-child(2) .word { color: #cfe0ff; }
 
 @media (max-width: 1000px) {
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }

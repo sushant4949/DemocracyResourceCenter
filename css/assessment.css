@@ -76,6 +76,9 @@
 .privacy { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--ink-3); }
 .privacy svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--brand); }
 
+/* The footer belongs on the welcome and report screens, not mid-assessment. */
+body[data-view="question"] .site-foot, body[data-view="intro"] .site-foot { display: none; }
+
 /* ---------- Top bar & stepper ---------- */
 .topbar {
   position: sticky; top: 0; z-index: 20;

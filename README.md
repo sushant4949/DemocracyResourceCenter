@@ -12,6 +12,7 @@ Free, browser-based learning tools by **[Dialogues on Democracy & Development](h
 | `crossword.html` | The Preamble crossword — easy, medium and hard |
 | `quiz.html` | The Constitution quiz — easy, medium and hard |
 | `constitution.html` | The story of the Constitution: journey, people, amendments, architecture |
+| `developer.html` | About Sushant Kumar, who built this |
 
 Everything is static HTML, CSS and vanilla JavaScript — no build step, no framework, no backend.
 

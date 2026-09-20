@@ -157,13 +157,44 @@ img { display: block; max-width: 100%; }
 .site-nav a.nav-link:hover { background: var(--tint-1); color: var(--brand-700); }
 .site-nav a.nav-link[aria-current="page"] { background: var(--brand); color: #fff; }
 
-.site-foot { background: var(--brand-900); color: rgba(255,255,255,.8); padding: 40px 0; margin-top: 60px; }
-.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
-.site-foot a { color: #fff; }
-.site-foot .foot-links { display: flex; flex-wrap: wrap; gap: 16px; font-family: var(--display); font-weight: 600; }
-.site-foot small { font-size: .88rem; }
-.site-foot .attrib { display: inline-block; margin-top: 6px; color: rgba(255,255,255,.55); font-size: .8rem; }
-.site-foot .attrib a { color: rgba(255,255,255,.8); }
+/* ---------- Common footer ---------- */
+.site-foot { background: var(--brand-900); color: rgba(255,255,255,.78); padding: clamp(36px, 5vw, 56px) 0 26px; margin-top: 60px; }
+.foot-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(24px, 4vw, 56px); }
+.foot-brand img { width: 84px; height: auto; margin-bottom: 14px; }
+.foot-brand p { font-size: .95rem; line-height: 1.55; max-width: 34ch; color: rgba(255,255,255,.72); }
+.foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.foot-col h4 {
+  font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .14em;
+  font-size: .8rem; color: rgba(255,255,255,.5); margin-bottom: 4px;
+}
+.foot-col a {
+  display: inline-flex; align-items: center; gap: .55em;
+  color: #fff; text-decoration: none; font-size: .97rem;
+  border-bottom: 1px solid transparent; transition: border-color .2s, color .2s;
+}
+.foot-col a:hover { border-color: rgba(255,255,255,.7); }
+.foot-col svg { width: 17px; height: 17px; flex: none; opacity: .85; }
+.foot-dev {
+  margin-top: 6px; border: 1.5px solid rgba(255,255,255,.45) !important; border-radius: 999px;
+  padding: .45em 1.1em; font-family: var(--display); font-weight: 600;
+}
+.foot-dev:hover { background: rgba(255,255,255,.14); border-color: #fff !important; }
+.foot-base {
+  display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; justify-content: space-between;
+  margin-top: clamp(26px, 4vw, 40px); padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14);
+}
+.site-foot small { font-size: .85rem; color: rgba(255,255,255,.6); }
+.site-foot .attrib { color: rgba(255,255,255,.45); font-size: .78rem; max-width: 74ch; }
+.site-foot .attrib a { color: rgba(255,255,255,.7); }
+
+@media (max-width: 900px) {
+  .foot-top { grid-template-columns: 1fr 1fr; }
+  .foot-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .foot-top { grid-template-columns: 1fr; gap: 26px; }
+  .foot-base { flex-direction: column; }
+}
 
 @media (max-width: 680px) {
   .site-nav .wrap { flex-direction: column; align-items: stretch; gap: 10px; }

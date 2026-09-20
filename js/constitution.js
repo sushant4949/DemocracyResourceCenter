@@ -279,9 +279,9 @@
     document.getElementById("journey").innerHTML = JOURNEY.map((s, i) => `
       <article class="stop" data-i="${i}">
         <time class="stop-when" datetime="${esc(s.date)}">
+          <span class="y">${esc(s.year)}</span>
           ${s.day ? `<span class="d">${esc(s.day)}</span>` : ""}
           <span class="m">${esc(s.mon)}</span>
-          <span class="y">${esc(s.year)}</span>
         </time>
         <div class="stop-card${s.img ? " has-photo" : ""}">
           <button class="stop-open" aria-expanded="false">

@@ -509,6 +509,7 @@
     else if (v === "question") app.innerHTML = viewQuestion();
     else app.innerHTML = viewWelcome();
 
+    document.body.dataset.view = v;
     if (v === "intro" || v === "question") hydrateSteps();
     if (v === "results") animateResults();
     document.title = v === "results"
