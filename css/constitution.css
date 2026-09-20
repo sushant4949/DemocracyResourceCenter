@@ -432,13 +432,9 @@
 .rpanel.in > *:nth-child(3) { animation-delay: .1s; }
 .rpanel.in > *:nth-child(4) { animation-delay: .16s; }
 .rpanel.in > *:nth-child(5) { animation-delay: .22s; }
-.rp-ic {
-  width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 16px;
-  background: linear-gradient(140deg, var(--brand), var(--brand-700)); color: #fff;
-}
-.rp-ic svg { width: 28px; height: 28px; }
 .rp-art { font-family: var(--display); font-weight: 600; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-700); }
-.rpanel h3 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; margin: 8px 0 14px; text-wrap: balance; }
+.rpanel h3 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; margin: 8px 0 6px; text-wrap: balance; }
+.rp-line { font-family: var(--display); font-weight: 600; font-size: clamp(1.1rem, 1.8vw, 1.35rem); color: var(--brand-700); margin-bottom: 16px; }
 .rp-body { color: var(--ink-2); font-size: 1.02rem; line-height: 1.65; max-width: 62ch; }
 .rp-life {
   margin-top: 18px; padding: 14px 16px; border-radius: var(--r-sm);
@@ -472,4 +468,67 @@
   .ritem { scroll-snap-align: start; }
   .ritem:hover { transform: none; }
   .rpanel { min-height: 0; }
+}
+
+/* ---------- Trivia: a deck that slides, set apart from the rest ---------- */
+.trivia-band {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--brand-900); color: #fff;
+  padding: clamp(44px, 7vw, 84px) 0;
+  margin-top: clamp(20px, 3vw, 34px);
+}
+.trivia-band::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5;
+  background:
+    radial-gradient(60% 70% at 88% 12%, rgba(102,153,255,.35), transparent 65%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,.05) 0 1px, transparent 1px 22px);
+}
+.trivia-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; margin-bottom: clamp(20px, 3vw, 32px); }
+.trivia-head h2 {
+  font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 700; color: #fff;
+  text-transform: uppercase; letter-spacing: .02em;
+}
+.trivia-head p { color: rgba(255,255,255,.62); font-size: 1rem; }
+
+.tv-deck { display: grid; min-height: clamp(200px, 26vw, 250px); align-items: center; }
+.tv-card {
+  grid-area: 1 / 1; display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 48px); align-items: center;
+  opacity: 0; transform: translateX(34px) scale(.99); pointer-events: none;
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.tv-card[data-on] { opacity: 1; transform: none; pointer-events: auto; }
+.tv-big {
+  display: flex; flex-direction: column; line-height: .92;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(3.2rem, 8vw, 5.8rem); color: #fff;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.tv-big small {
+  font-size: clamp(.78rem, 1.1vw, .95rem); letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(154, 190, 255, .95); margin-top: 12px; font-weight: 600;
+}
+.tv-card p { font-size: clamp(1.02rem, 1.5vw, 1.25rem); line-height: 1.6; color: rgba(255,255,255,.88); max-width: 62ch; }
+
+.tv-controls { display: flex; align-items: center; gap: 16px; margin-top: clamp(22px, 3vw, 32px); }
+.tv-arrow {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.08); color: #fff; font-size: 1.5rem; line-height: 1;
+  display: grid; place-items: center; transition: background .2s, transform .2s var(--ease);
+}
+.tv-arrow:hover { background: rgba(255,255,255,.22); transform: scale(1.06); }
+.tv-dots { display: flex; align-items: center; gap: 8px; }
+.tv-dot {
+  width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0;
+  background: rgba(255,255,255,.3); transition: width .35s var(--ease), background .35s;
+}
+.tv-dot:hover { background: rgba(255,255,255,.55); }
+.tv-dot.on { width: 28px; background: #fff; }
+.trivia-src { margin-top: clamp(20px, 3vw, 30px); font-size: .86rem; color: rgba(255,255,255,.5); }
+.trivia-src a { color: rgba(255,255,255,.85); }
+
+@media (max-width: 700px) {
+  .tv-card { grid-template-columns: 1fr; gap: 12px; }
+  .tv-big { flex-direction: row; align-items: baseline; gap: 12px; }
+  .tv-big small { margin-top: 0; }
 }

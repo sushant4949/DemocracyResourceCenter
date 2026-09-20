@@ -5,7 +5,7 @@
 
   /* ---------- Data ---------- */
   const FACTS = [
-    { n: 299, suffix: "", label: "members signed it", note: "The Assembly began with 389 members. After Partition, 299 remained — among them 15 women." },
+    { n: 299, suffix: "", label: "members in the Assembly", note: "It began with 389 members. After Partition, 299 remained, among them 15 women. 284 of them signed on 24 January 1950." },
     { n: 165, suffix: "", label: "days of debate", note: "Across 11 sessions between December 1946 and November 1949." },
     { n: 448, suffix: "", label: "articles today", note: "It began with 395 articles in 22 parts and 8 schedules. Today: about 448 articles, 25 parts and 12 schedules." },
     { n: 106, suffix: "", label: "amendments so far", note: "From the First Amendment in 1951 to the 106th in 2023." }
@@ -263,6 +263,63 @@
   }
 
 
+
+  /* ---------- Trivia ---------- */
+  const TRIVIA = [
+    { big: "53,000", unit: "visitors", text: "More than fifty three thousand citizens sat in the visitors’ gallery over the three years of debate. The making of the Constitution was watched by the public from the start." },
+    { big: "90,000", unit: "words", text: "The Constitution was never typeset or printed to begin with. All ninety thousand words were written by hand, in English and in Hindi." },
+    { big: "22", unit: "illustrations", text: "Each part opens with a scene from Indian history, painted in miniature style: Mohenjo-daro and the Indus Valley, the Vedic age, the Maurya and Gupta empires, the Mughal era and the freedom movement." },
+    { big: "284", unit: "signatures", text: "Two hundred and eighty four members signed the Constitution at the Constitution Hall in New Delhi on 24 January 1950, at the Assembly's last sitting." },
+    { big: "N₂", unit: "nitrogen", text: "The original copies are kept in cases filled with nitrogen in the Library of Parliament, so the ink and the handmade paper do not age." },
+    { big: "22 July", unit: "1947", text: "The national flag was adopted in its present form at a sitting of the Constituent Assembly, three weeks before independence." },
+    { big: "1", unit: "first Speaker", text: "G.V. Mavlankar became the first Speaker of the Lok Sabha after India became a republic." },
+    { big: "We", unit: "the people", text: "Sovereignty rests with the people of India. The Constitution was adopted in their name, which makes them its ultimate custodians." }
+  ];
+
+  let tIndex = 0, tTimer = null;
+
+  function renderTrivia() {
+    const el = document.getElementById("trivia");
+    if (!el) return;
+    el.innerHTML = `
+      <div class="tv-deck" id="tv-deck">
+        ${TRIVIA.map((t, i) => `
+          <article class="tv-card" data-t="${i}" ${i === 0 ? 'data-on="1"' : ""}>
+            <span class="tv-big">${t.big}<small>${esc(t.unit)}</small></span>
+            <p>${esc(t.text)}</p>
+          </article>`).join("")}
+      </div>
+      <div class="tv-controls">
+        <button class="tv-arrow" data-tstep="-1" aria-label="Previous fact">‹</button>
+        <div class="tv-dots" role="tablist" aria-label="Facts">
+          ${TRIVIA.map((_, i) => `<button class="tv-dot" data-tgo="${i}" role="tab" aria-selected="${i === 0}" aria-label="Fact ${i + 1}"></button>`).join("")}
+        </div>
+        <button class="tv-arrow" data-tstep="1" aria-label="Next fact">›</button>
+      </div>`;
+    paintTrivia(0);
+    el.addEventListener("pointerenter", stopTrivia);
+    el.addEventListener("pointerleave", startTrivia);
+    el.addEventListener("focusin", stopTrivia);
+  }
+
+  function paintTrivia(i) {
+    tIndex = (i + TRIVIA.length) % TRIVIA.length;
+    document.querySelectorAll(".tv-card").forEach((c, k) => {
+      c.toggleAttribute("data-on", k === tIndex);
+      c.setAttribute("aria-hidden", String(k !== tIndex));
+    });
+    document.querySelectorAll(".tv-dot").forEach((d, k) => {
+      d.classList.toggle("on", k === tIndex);
+      d.setAttribute("aria-selected", String(k === tIndex));
+    });
+  }
+
+  function startTrivia() {
+    if (tTimer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    tTimer = setInterval(() => paintTrivia(tIndex + 1), 7000);
+  }
+  function stopTrivia() { clearInterval(tTimer); tTimer = null; }
+
   /* ---------- The six Fundamental Rights ---------- */
   const R_ICONS = {
     equality: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M3 7h18"/><path d="m6 7-3 7a3.5 3.5 0 0 0 6 0z"/><path d="m18 7-3 7a3.5 3.5 0 0 0 6 0z"/></svg>',
@@ -319,9 +376,9 @@
     const r = RIGHTS[rIndex];
     const panel = document.getElementById("rpanel");
     panel.innerHTML = `
-      <span class="rp-ic">${R_ICONS[r.icon]}</span>
       <span class="rp-art">${esc(r.art)}</span>
-      <h3>${esc(r.line)}</h3>
+      <h3>${esc(r.name)}</h3>
+      <p class="rp-line">${esc(r.line)}</p>
       <p class="rp-body">${esc(r.body)}</p>
       <p class="rp-life"><strong>In everyday life</strong>${esc(r.life)}</p>
       <div class="rp-nav">
@@ -631,15 +688,17 @@
         if (!e.isIntersecting) return;
         e.target.classList.add("in");
         if (e.target.dataset.count) countUp(e.target);
+        if (e.target.id === "trivia-section") startTrivia();
         io.unobserve(e.target);
       });
     }, { rootMargin: "0px 0px -12% 0px", threshold: .15 });
-    document.querySelectorAll(".fact strong[data-count], .reveal").forEach(el => io.observe(el));
+    document.querySelectorAll(".fact strong[data-count], .reveal, #trivia-section").forEach(el => io.observe(el));
   }
 
   /* ---------- Wire up ---------- */
   renderFacts();
   renderRights();
+  renderTrivia();
   renderJourney();
   renderMembers();
   renderCredits();
@@ -669,6 +728,12 @@
       else if (act === "next") stepLight(1);
       return;
     }
+
+    const tstep = e.target.closest("[data-tstep]");
+    if (tstep) { stopTrivia(); return paintTrivia(tIndex + +tstep.dataset.tstep); }
+
+    const tgo = e.target.closest("[data-tgo]");
+    if (tgo) { stopTrivia(); return paintTrivia(+tgo.dataset.tgo); }
 
     const rbtn = e.target.closest("[data-right]");
     if (rbtn) return paintRight(+rbtn.dataset.right);
