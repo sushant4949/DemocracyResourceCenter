@@ -65,7 +65,7 @@ Content lives in [`js/constitution.js`](js/constitution.js); image captions and 
 
 ## Images and credits
 
-All images come from Wikimedia Commons and are public domain or freely licensed. Each page carries its own credits list with the licence and author of every image, and the portrait of Dr. B.R. Ambedkar used in the page headers is by [Suthir](https://commons.wikimedia.org/wiki/File:B._R._Ambedkar.svg), CC BY-SA 4.0.
+Historical images come from Wikimedia Commons and are public domain or freely licensed. The session photographs on the home page, the assessment and the closing band of Our Constitution are DoD's own, drawn from its social media posts, and follow the house style: desaturated photography under a brand-blue wash. Each page carries its own credits list with the licence and author of every image, and the portrait of Dr. B.R. Ambedkar used in the page headers is by [Suthir](https://commons.wikimedia.org/wiki/File:B._R._Ambedkar.svg), CC BY-SA 4.0.
 
 ## Editing content
 

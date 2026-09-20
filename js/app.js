@@ -243,6 +243,7 @@
     return `
       <div class="welcome">
         <section class="hero">
+          <div class="hero-media" aria-hidden="true"><img src="assets/photos/hands-up.jpg" alt=""></div>
           <a class="hero-back" href="./">&larr; All resources</a>
           <div class="hero-words" aria-hidden="true"><span>Justice</span><span>Liberty</span><span>Equality</span><span>Fraternity</span></div>
           <img class="hero-logo anim-rise" src="assets/logo-wordmark-white.png" alt="Dialogues on Democracy &amp; Development">
