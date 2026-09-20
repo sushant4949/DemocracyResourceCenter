@@ -367,3 +367,54 @@
   color: var(--ink); margin-bottom: 8px;
 }
 @media (max-width: 820px) { .committee { grid-template-columns: 1fr; } }
+
+/* ---------- The six Fundamental Rights ---------- */
+.rights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.right {
+  display: flex; flex-direction: column; gap: 7px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(18px, 2.2vw, 26px); box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s, transform .25s var(--ease), border-color .25s;
+  animation: rise .5s var(--ease) both;
+}
+.right:nth-child(2) { animation-delay: .06s; }
+.right:nth-child(3) { animation-delay: .12s; }
+.right:nth-child(4) { animation-delay: .18s; }
+.right:nth-child(5) { animation-delay: .24s; }
+.right:nth-child(6) { animation-delay: .3s; }
+.right:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--tint-3); }
+.right header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.r-ic {
+  width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+  background: linear-gradient(140deg, var(--brand), var(--brand-700)); color: #fff;
+}
+.r-ic svg { width: 24px; height: 24px; }
+.r-num {
+  font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1;
+  color: var(--tint-3); font-variant-numeric: tabular-nums;
+}
+.right h3 { font-size: 1.3rem; font-weight: 700; line-height: 1.15; }
+.r-art {
+  font-family: var(--display); font-weight: 600; font-size: .85rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--brand-700);
+}
+.r-line { font-family: var(--display); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin-top: 6px; }
+.r-body { color: var(--ink-2); font-size: .97rem; line-height: 1.55; }
+.r-life {
+  margin-top: auto; padding: 12px 14px; border-radius: var(--r-sm);
+  background: var(--tint-1); color: var(--ink-2); font-size: .93rem; line-height: 1.5;
+}
+.r-life strong {
+  display: block; font-family: var(--display); font-weight: 700; font-size: .76rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--brand-700); margin-bottom: 3px;
+}
+.rights-close {
+  margin-top: 18px; background: var(--brand-900); color: rgba(255,255,255,.88);
+  border-radius: var(--r-lg); padding: clamp(22px, 3vw, 36px);
+}
+.rights-close h3 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 10px; }
+.rights-close p { max-width: 78ch; }
+.rights-close p + p { margin-top: 10px; }
+
+@media (max-width: 1000px) { .rights { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .rights { grid-template-columns: 1fr; } }

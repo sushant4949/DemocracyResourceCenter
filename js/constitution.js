@@ -206,19 +206,6 @@
 
   const ARCHITECTURE = [
     {
-      title: "Fundamental Rights", range: "Articles 12–35",
-      text: "Rights every person can enforce in court, and the reason Article 32 exists.",
-      items: [
-        "Equality before the law and equal protection (14), no discrimination on grounds of religion, race, caste, sex or place of birth (15), equal opportunity in public employment (16)",
-        "Untouchability abolished (17); titles abolished (18)",
-        "Freedom of speech, assembly, association, movement, residence and occupation (19), subject to reasonable restrictions",
-        "Protection in conviction (20), life and personal liberty (21), education for 6–14 year olds (21A), safeguards on arrest and detention (22)",
-        "No trafficking or forced labour (23); no child labour in hazardous work (24)",
-        "Freedom of conscience and religion (25–28); minorities' culture and schools (29–30)",
-        "The right to move the Supreme Court when a right is violated (32)"
-      ]
-    },
-    {
       title: "Directive Principles", range: "Articles 36–51",
       text: "Instructions to the State. Courts cannot enforce them, but they are meant to guide every law and policy.",
       items: [
